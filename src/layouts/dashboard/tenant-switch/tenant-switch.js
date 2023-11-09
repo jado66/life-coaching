@@ -28,14 +28,9 @@ export const TenantSwitch = (props) => {
             color="inherit"
             variant="h6"
           >
-            Devias
+            Coach Cole Zesiger
           </Typography>
-          <Typography
-            color="neutral.400"
-            variant="body2"
-          >
-            Production
-          </Typography>
+          
         </Box>
         <IconButton
           onClick={popover.handleOpen}

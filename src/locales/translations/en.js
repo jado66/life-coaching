@@ -37,7 +37,7 @@ export const en = {
   [tokens.nav.management]: 'Management',
   [tokens.nav.orderList]: 'Orders',
   [tokens.nav.overview]: 'Overview',
-  [tokens.nav.pages]: 'Pages',
+  [tokens.nav.pages]: 'Utility Pages',
   [tokens.nav.postCreate]: 'Post Create',
   [tokens.nav.postDetails]: 'Post Details',
   [tokens.nav.postList]: 'Post List',
