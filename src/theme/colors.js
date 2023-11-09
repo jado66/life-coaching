@@ -61,12 +61,12 @@ export const purple = withAlphas({
 });
 
 export const red = withAlphas({
-  lightest: '#EC7A7A', // need new
+  lightest: '#FAC4C4', // need new
   light: '#EC7A7A',
   main: '#FF5757',
-  dark: '#FF5757',
-  darkest: '#FF5757',
-  contrastText: '#FF5757',
+  dark: '#EC068A',
+  darkest: '#C10B6F',
+  contrastText: '#FFFFFF',
 });
 
 export const success = withAlphas({

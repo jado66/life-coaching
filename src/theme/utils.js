@@ -11,7 +11,7 @@ export const getPrimary = (preset) => {
     case 'purple':
       return purple;
     case 'red':
-      return purple;
+      return red;
     default:
       console.error(
         'Invalid color preset, accepted values: "blue", "green", "indigo", "red", or "purple"".'
