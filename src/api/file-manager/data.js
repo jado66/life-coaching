@@ -17,8 +17,8 @@ export const items = [
     name: 'AWS Credentials',
     shared: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
       {
         avatar: '/assets/avatars/avatar-miron-vitold.png',
@@ -51,8 +51,8 @@ export const items = [
   {
     id: 'b8bb82b90aedf81d57ccdb4d',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subHours(subMinutes(now, 3), 4).getTime(),
     isFavorite: false,
@@ -82,8 +82,8 @@ export const items = [
   {
     id: 'b33fe3f9ced7e4fa7efcbd9a',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subHours(subMinutes(now, 16), 20).getTime(),
     isFavorite: true,
@@ -117,8 +117,8 @@ export const items = [
   {
     id: 'c23e85a978a79a5cb53c0b0a',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 41), 6), 2).getTime(),
     extension: 'pdf',
@@ -149,8 +149,8 @@ export const items = [
     name: 'company-logo-white.svg',
     shared: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
       {
         avatar: '/assets/avatars/avatar-nasimiyu-danai.png',
@@ -165,8 +165,8 @@ export const items = [
   {
     id: 'afa0412fe4cdb39b3c8b9ad2',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 41), 6), 2).getTime(),
     extension: 'jpeg',
@@ -187,8 +187,8 @@ export const items = [
   {
     id: 'f90e02aaa5f7f9f87ae14ad8',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 41), 6), 2).getTime(),
     extension: 'svg',
@@ -213,8 +213,8 @@ export const items = [
   {
     id: 'b74e2b767d284d4a94de5e3a',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 41), 6), 2).getTime(),
     extension: 'log',
@@ -230,8 +230,8 @@ export const items = [
   {
     id: 'b929bf2753254c05d45bc9fa',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 41), 6), 2).getTime(),
     extension: 'ico',
@@ -252,8 +252,8 @@ export const items = [
   {
     id: 'fdbadfb4cbbd5b3ea44b1823',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 3), 14), 6).getTime(),
     extension: 'dmg',
@@ -339,8 +339,8 @@ export const items = [
     name: 'animation-ai-model.py',
     shared: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
     ],
     size: 785187212,
@@ -361,8 +361,8 @@ export const items = [
     name: 'hybrid_vw-2023.png',
     shared: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
     ],
     size: 442600692,
@@ -400,8 +400,8 @@ export const items = [
     name: 'christmas carols.mp4',
     shared: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
     ],
     size: 841133109,
@@ -422,8 +422,8 @@ export const items = [
     name: 'Bandwidth_traffic-analyzer.dmg',
     shared: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
     ],
     size: 258621281,
@@ -434,8 +434,8 @@ export const items = [
   {
     id: 'ec4754671acbd7ad74afffa6',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 11), 16), 18).getTime(),
     extension: 'pkg',
@@ -456,8 +456,8 @@ export const items = [
   {
     id: '97c43cc1e0ad50cbbf14b6ce',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 1), 3), 37).getTime(),
     extension: 'exe',
@@ -482,8 +482,8 @@ export const items = [
   {
     id: '7cfdb3fed0bac18d77b555ba',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 12), 11), 40).getTime(),
     extension: 'psd',
@@ -504,8 +504,8 @@ export const items = [
   {
     id: 'e23ee9ae093bb6e25cce9f85',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 15), 23), 41).getTime(),
     extension: 'tar',
@@ -526,8 +526,8 @@ export const items = [
   {
     id: '22fae356b5b7c5d13c4b4ba8',
     author: {
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subDays(subHours(subMinutes(now, 40), 11), 62).getTime(),
     extension: 'deb',

@@ -110,7 +110,7 @@ export const company = {
     {
       id: 'e756e1393b620f87728ab28b',
       addedJob: 'Senior Golang Backend Engineer',
-      author: 'Anika Visser',
+      author: 'Cole Zesiger',
       avatar: '/assets/avatars/avatar-iulia-albu.png',
       createdAt: subDays(subHours(subMinutes(subSeconds(now, 3), 7), 5), 82).getTime(),
       type: 'new_job',
@@ -236,8 +236,8 @@ Our mission emphasizes seeking and hiring diverse voices, including those who ar
   reviews: [
     {
       id: 'ab8ed24cd579605c386e1275',
-      author: 'Anika Visser',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
+      author: 'Cole Zesiger',
+      avatar: '/assets/avatars/avatar-cole.png',
       createdAt: subDays(subHours(subMinutes(subSeconds(now, 4), 9), 4), 2).getTime(),
       description:
         'I have been working with this company full-time. Great for the work life balance. Cons, decentralized decision making process across the organization.',

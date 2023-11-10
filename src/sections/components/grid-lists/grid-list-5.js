@@ -23,8 +23,8 @@ const posts = [
     id: '5e887faca2b7a1ddce01221a',
     author: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subHours(now, 4).getTime(),
     likes: 24,
@@ -35,8 +35,8 @@ const posts = [
     id: '5e887faf03e78a5359765636',
     author: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     createdAt: subHours(now, 7).getTime(),
     likes: 65,

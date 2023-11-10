@@ -8,7 +8,7 @@ import { usePopover } from 'src/hooks/use-popover';
 import { LanguagePopover } from './language-popover';
 
 const languages = {
-  en: '/assets/flags/flag-uk.svg',
+  en: '/assets/flags/flag-us.svg',
   de: '/assets/flags/flag-de.svg',
   es: '/assets/flags/flag-es.svg',
 };

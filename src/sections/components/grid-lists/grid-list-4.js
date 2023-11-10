@@ -21,10 +21,10 @@ const applicants = [
   },
   {
     id: '5e86809283e28b96d2d38537',
-    avatar: '/assets/avatars/avatar-anika-visser.png',
+    avatar: '/assets/avatars/avatar-cole.png',
     commonContacts: 17,
     cover: '/assets/covers/abstract-1-4x4-small.png',
-    name: 'Anika Visser',
+    name: 'Cole Zesiger',
     skills: ['Backend development', 'Firebase', 'MongoDB', 'ExpressJS'],
   },
   {

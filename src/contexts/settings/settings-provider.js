@@ -66,6 +66,7 @@ export const SettingsProvider = (props) => {
   const handleUpdate = useCallback((settings) => {
     setState((prevState) => {
       storeSettings({
+        accountType: prevState.accountType,
         colorPreset: prevState.colorPreset,
         contrast: prevState.contrast,
         direction: prevState.direction,
@@ -100,6 +101,7 @@ export const SettingsProvider = (props) => {
 
   const isCustom = useMemo(() => {
     return !isEqual(defaultSettings, {
+      accountType: state.accountType,
       colorPreset: state.colorPreset,
       contrast: state.contrast,
       direction: state.direction,

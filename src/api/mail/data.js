@@ -133,9 +133,9 @@ Marcus Finn
     subject: 'Website redesign. Interested in collaboration',
     to: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
+        avatar: '/assets/avatars/avatar-cole.png',
         email: 'anika.visser@devias.io',
-        name: 'Anika Visser',
+        name: 'Cole Zesiger',
       },
     ],
   },
@@ -158,9 +158,9 @@ Hey, nice projects! I really liked the one in react. What's your quote on kinda 
     subject: 'Amazing work',
     to: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
+        avatar: '/assets/avatars/avatar-cole.png',
         email: 'anika.visser@devias.io',
-        name: 'Anika Visser',
+        name: 'Cole Zesiger',
       },
     ],
   },
@@ -183,9 +183,9 @@ Dear Anika, Your flight is coming up soon. Please don’t forget to check in for
     subject: 'Flight reminder',
     to: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
+        avatar: '/assets/avatars/avatar-cole.png',
         email: 'anika.visser@devias.io',
-        name: 'Anika Visser',
+        name: 'Cole Zesiger',
       },
     ],
   },
@@ -208,9 +208,9 @@ My market leading client has another fantastic opportunity for an experienced So
     subject: 'Possible candidates for the position',
     to: [
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
+        avatar: '/assets/avatars/avatar-cole.png',
         email: 'anika.visser@devias.io',
-        name: 'Anika Visser',
+        name: 'Cole Zesiger',
       },
     ],
   },

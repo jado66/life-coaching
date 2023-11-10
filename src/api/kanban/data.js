@@ -6,8 +6,8 @@ const board = {
   members: [
     {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     {
       id: '5e887a62195cc5aef7e8ca5d',

@@ -53,7 +53,7 @@ export const customers = [
   },
   {
     id: '5e86809283e28b96d2d38537',
-    avatar: '/assets/avatars/avatar-anika-visser.png',
+    avatar: '/assets/avatars/avatar-cole.png',
     city: 'Madrid',
     country: 'Spain',
     currency: '$',
@@ -61,7 +61,7 @@ export const customers = [
     hasAcceptedMarketing: true,
     isProspect: false,
     isReturning: true,
-    name: 'Anika Visser',
+    name: 'Cole Zesiger',
     state: 'Madrid',
     totalSpent: 500.0,
     totalOrders: 1,

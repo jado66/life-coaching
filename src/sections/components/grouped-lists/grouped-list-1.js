@@ -67,8 +67,8 @@ const activities = [
     createdAt: subMinutes(now, 5).getTime(),
     customer: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     description: 'Subscription Purchase',
     type: 'payment',

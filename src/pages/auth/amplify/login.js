@@ -36,7 +36,7 @@ const getInitialValues = (username) => {
   }
 
   return {
-    email: 'demo@devias.io',
+    email: 'cole@colezesiger.com',
     password: 'Password123!',
     submit: null,
   };
@@ -182,7 +182,7 @@ const Page = () => {
         >
           <Alert severity="error">
             <div>
-              You can use <b>demo@devias.io</b> and password <b>Password123!</b>
+              You can use <b>cole@colezesiger.com</b> and password <b>Password123!</b>
             </div>
           </Alert>
           <AuthIssuer issuer={issuer} />

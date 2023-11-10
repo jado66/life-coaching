@@ -43,8 +43,8 @@ const tasks = [
         name: 'Penjani Inyene',
       },
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
       {
         avatar: '/assets/avatars/avatar-nasimiyu-danai.png',
@@ -92,8 +92,8 @@ const tasks = [
         name: 'Marcus Finn',
       },
       {
-        avatar: '/assets/avatars/avatar-anika-visser.png',
-        name: 'Anika Visser',
+        avatar: '/assets/avatars/avatar-cole.png',
+        name: 'Cole Zesiger',
       },
     ],
     title: 'GDPR Compliance',

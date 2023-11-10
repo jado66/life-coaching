@@ -32,213 +32,140 @@ import { tokens } from 'src/locales/tokens';
 import { paths } from 'src/paths';
 import { AccountCircle } from '@mui/icons-material';
 
-export const useSections = () => {
+export const useDevSections = () => {
   const { t } = useTranslation();
 
   return useMemo(() => {
     return [
-      {
-        items: [
-          {
-            title: t(tokens.nav.overview),
-            path: paths.dashboard.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <HomeSmileIcon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.analytics),
-            path: paths.dashboard.analytics,
-            icon: (
-              <SvgIcon fontSize="small">
-                <BarChartSquare02Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.account),
-            path: paths.dashboard.account,
-            icon: (
-              <SvgIcon fontSize="small">
-                <AccountCircle />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.customers),
-            path: paths.dashboard.customers.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Users03Icon />
-              </SvgIcon>
-            ),
+        {
+            subheader: t(tokens.nav.pages),
             items: [
-              {
-                title: t(tokens.nav.list),
-                path: paths.dashboard.customers.index,
-              },
-              {
-                title: t(tokens.nav.details),
-                path: paths.dashboard.customers.details,
-              },
-              {
-                title: t(tokens.nav.edit),
-                path: paths.dashboard.customers.edit,
-              },
-            ],
-          },
-          {
-            title: t(tokens.nav.academy),
-            path: paths.dashboard.academy.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <GraduationHat01Icon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: t(tokens.nav.dashboard),
-                path: paths.dashboard.academy.index,
-              },
-              {
-                title: t(tokens.nav.course),
-                path: paths.dashboard.academy.courseDetails,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        subheader: t(tokens.nav.pages),
-        items: [
-          {
-            title: t(tokens.nav.auth),
-            icon: (
-              <SvgIcon fontSize="small">
-                <Lock01Icon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: t(tokens.nav.login),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.login.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.login.modern,
-                  },
+                {
+                    title: t(tokens.nav.auth),
+                    icon: (
+                    <SvgIcon fontSize="small">
+                        <Lock01Icon />
+                    </SvgIcon>
+                    ),
+                    items: [
+                    {
+                        title: t(tokens.nav.login),
+                        items: [
+                        {
+                            title: 'Classic',
+                            path: paths.authDemo.login.classic,
+                        },
+                        {
+                            title: 'Modern',
+                            path: paths.authDemo.login.modern,
+                        },
+                        ],
+                    },
+                    {
+                        title: t(tokens.nav.register),
+                        items: [
+                        {
+                            title: 'Classic',
+                            path: paths.authDemo.register.classic,
+                        },
+                        {
+                            title: 'Modern',
+                            path: paths.authDemo.register.modern,
+                        },
+                        ],
+                    },
+                    {
+                        title: t(tokens.nav.forgotPassword),
+                        items: [
+                        {
+                            title: 'Classic',
+                            path: paths.authDemo.forgotPassword.classic,
+                        },
+                        {
+                            title: 'Modern',
+                            path: paths.authDemo.forgotPassword.modern,
+                        },
+                        ],
+                    },
+                    {
+                        title: t(tokens.nav.resetPassword),
+                        items: [
+                        {
+                            title: 'Classic',
+                            path: paths.authDemo.resetPassword.classic,
+                        },
+                        {
+                            title: 'Modern',
+                            path: paths.authDemo.resetPassword.modern,
+                        },
+                        ],
+                    },
+                    {
+                        title: t(tokens.nav.verifyCode),
+                        items: [
+                        {
+                            title: 'Classic',
+                            path: paths.authDemo.verifyCode.classic,
+                        },
+                        {
+                            title: 'Modern',
+                            path: paths.authDemo.verifyCode.modern,
+                        },
+                        ],
+                    },
                 ],
               },
               {
-                title: t(tokens.nav.register),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.register.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.register.modern,
-                  },
-                ],
+                title: t(tokens.nav.pricing),
+                path: paths.pricing,
+                icon: (
+                  <SvgIcon fontSize="small">
+                    <CreditCard01Icon />
+                  </SvgIcon>
+                ),
               },
               {
-                title: t(tokens.nav.forgotPassword),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.forgotPassword.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.forgotPassword.modern,
-                  },
-                ],
+                title: t(tokens.nav.checkout),
+                path: paths.checkout,
+                icon: (
+                  <SvgIcon fontSize="small">
+                    <LogOut01Icon />
+                  </SvgIcon>
+                ),
               },
               {
-                title: t(tokens.nav.resetPassword),
-                items: [
-                  {
-                    title: 'Classic',
-                    path: paths.authDemo.resetPassword.classic,
-                  },
-                  {
-                    title: 'Modern',
-                    path: paths.authDemo.resetPassword.modern,
-                  },
-                ],
+                title: t(tokens.nav.contact),
+                path: paths.contact,
+                icon: (
+                  <SvgIcon fontSize="small">
+                    <Mail04Icon />
+                  </SvgIcon>
+                ),
               },
               {
-                title: t(tokens.nav.verifyCode),
+                title: t(tokens.nav.error),
+                icon: (
+                  <SvgIcon fontSize="small">
+                    <XSquareIcon />
+                  </SvgIcon>
+                ),
                 items: [
                   {
-                    title: 'Classic',
-                    path: paths.authDemo.verifyCode.classic,
+                    title: '401',
+                    path: paths.notAuthorized,
                   },
                   {
-                    title: 'Modern',
-                    path: paths.authDemo.verifyCode.modern,
+                    title: '404',
+                    path: paths.notFound,
+                  },
+                  {
+                    title: '500',
+                    path: paths.serverError,
                   },
                 ],
               },
             ],
-          },
-          {
-            title: t(tokens.nav.pricing),
-            path: paths.pricing,
-            icon: (
-              <SvgIcon fontSize="small">
-                <CreditCard01Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.checkout),
-            path: paths.checkout,
-            icon: (
-              <SvgIcon fontSize="small">
-                <LogOut01Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.contact),
-            path: paths.contact,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Mail04Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.error),
-            icon: (
-              <SvgIcon fontSize="small">
-                <XSquareIcon />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: '401',
-                path: paths.notAuthorized,
-              },
-              {
-                title: '404',
-                path: paths.notFound,
-              },
-              {
-                title: '500',
-                path: paths.serverError,
-              },
-            ],
-          },
-        ],
-      },
+        },
       {
         subheader: 'Page We Won\'t Need',
         items: [

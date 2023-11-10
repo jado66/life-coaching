@@ -13,7 +13,7 @@ import { tokens } from 'src/locales/tokens';
 
 const languageOptions = {
   en: {
-    icon: '/assets/flags/flag-uk.svg',
+    icon: '/assets/flags/flag-us.svg',
     label: 'English',
   },
   de: {

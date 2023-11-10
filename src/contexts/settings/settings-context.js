@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 
 export const defaultSettings = {
+  accountType: 'coach',
   colorPreset: 'red',
   contrast: 'normal',
   direction: 'ltr',

@@ -4,7 +4,7 @@ const now = new Date();
 
 export const profile = {
   id: '5e86809283e28b96d2d38537',
-  avatar: '/assets/avatars/avatar-anika-visser.png',
+  avatar: '/assets/avatars/avatar-cole.png',
   bio: 'Product Designer',
   connectedStatus: 'not_connected',
   cover: '/assets/covers/abstract-1-4x3-large.png',
@@ -12,7 +12,7 @@ export const profile = {
   currentJobCompany: 'Devias IO',
   currentJobTitle: 'Product Designer',
   email: 'anika.visser@devias.io',
-  name: 'Anika Visser',
+  name: 'Cole Zesiger',
   originCity: 'Rm. Valcea',
   previousJobCompany: 'Focus Aesthetic Dynamics',
   previousJobTitle: 'UX Designer',
@@ -56,8 +56,8 @@ export const posts = [
     id: '5e887faca2b7a1ddce01221a',
     author: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     comments: [
       {
@@ -91,8 +91,8 @@ export const posts = [
     id: '5e887faf03e78a5359765636',
     author: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     comments: [
       {
@@ -154,8 +154,8 @@ export const feed = [
     id: '5e887faca2b7a1ddce01221a',
     author: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     comments: [
       {
@@ -189,8 +189,8 @@ export const feed = [
     id: '5e887faf03e78a5359765636',
     author: {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
-      name: 'Anika Visser',
+      avatar: '/assets/avatars/avatar-cole.png',
+      name: 'Cole Zesiger',
     },
     comments: [
       {

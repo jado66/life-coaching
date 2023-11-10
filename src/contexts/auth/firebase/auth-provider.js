@@ -53,7 +53,7 @@ export const AuthProvider = (props) => {
               id: user.uid,
               avatar: user.photoURL || undefined,
               email: user.email || 'anika.visser@devias.io',
-              name: 'Anika Visser',
+              name: 'Cole Zesiger',
               plan: 'Premium',
             },
           },

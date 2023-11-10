@@ -102,6 +102,7 @@ const CustomApp = (props) => {
                                   onUpdate={settings.handleUpdate}
                                   open={settings.openDrawer}
                                   values={{
+                                    accountType: settings.accountType,
                                     colorPreset: settings.colorPreset,
                                     contrast: settings.contrast,
                                     direction: settings.direction,

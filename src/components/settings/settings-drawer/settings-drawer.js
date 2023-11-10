@@ -18,6 +18,7 @@ import { OptionsLayout } from './options-layout';
 import { OptionsNavColor } from './options-nav-color';
 import { OptionsColorScheme } from './options-color-scheme';
 import { OptionsStretch } from './options-stretch';
+import { OptionsAccountType } from './options-account-type';
 
 export const SettingsDrawer = (props) => {
   const { canReset, onClose, onUpdate, onReset, open, values = {}, ...other } = props;
@@ -119,6 +120,10 @@ export const SettingsDrawer = (props) => {
           spacing={5}
           sx={{ p: 3 }}
         >
+          <OptionsAccountType
+            onChange={(value) => handleFieldUpdate('accountType', value)}
+            value={values.accountType}
+          />
           <OptionsColorPreset
             onChange={(value) => handleFieldUpdate('colorPreset', value)}
             value={values.colorPreset}
