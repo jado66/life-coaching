@@ -6,6 +6,8 @@ export const en = {
   [tokens.nav.account]: 'Account',
   [tokens.nav.analytics]: 'Analytics',
   [tokens.nav.auth]: 'Auth',
+  [tokens.nav.aiAssistant]: 'AI Assistant',
+  [tokens.nav.applications]: 'Applications',
   [tokens.nav.blog]: 'Blog',
   [tokens.nav.browse]: 'Browse',
   [tokens.nav.calendar]: 'Calendar',
@@ -47,5 +49,6 @@ export const en = {
   [tokens.nav.register]: 'Register',
   [tokens.nav.resetPassword]: 'Reset Password',
   [tokens.nav.socialMedia]: 'Social Media',
+  [tokens.nav.test]: 'Test',
   [tokens.nav.verifyCode]: 'Verify Code',
 };

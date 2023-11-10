@@ -28,7 +28,7 @@ export const OptionsAccountType = (props) => {
           color="text.secondary"
           variant="overline"
         >
-          Site View
+          Imperesonate Account Type
         </Typography>
         <Stack
           alignItems="center"

@@ -5,7 +5,9 @@ export const tokens = {
   nav: {
     academy: 'nav.academy',
     account: 'nav.account',
+    aiAssistant: 'nav.aiAssistant',
     analytics: 'nav.analytics',
+    applications: 'nav.applications',
     auth: 'nav.auth',
     blog: 'nav.blog',
     browse: 'nav.browse',
@@ -49,6 +51,7 @@ export const tokens = {
     register: 'nav.register',
     resetPassword: 'nav.resetPassword',
     socialMedia: 'nav.socialMedia',
+    test: 'nav.test',
     verifyCode: 'nav.verifyCode',
   },
 };

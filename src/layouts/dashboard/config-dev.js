@@ -4,15 +4,12 @@ import Chip from '@mui/material/Chip';
 import SvgIcon from '@mui/material/SvgIcon';
 
 import AlignLeft02Icon from 'src/icons/untitled-ui/duocolor/align-left-02';
-import BarChartSquare02Icon from 'src/icons/untitled-ui/duocolor/bar-chart-square-02';
 import Building04Icon from 'src/icons/untitled-ui/duocolor/building-04';
 import CalendarIcon from 'src/icons/untitled-ui/duocolor/calendar';
 import CheckDone01Icon from 'src/icons/untitled-ui/duocolor/check-done-01';
 import CreditCard01Icon from 'src/icons/untitled-ui/duocolor/credit-card-01';
 import CurrencyBitcoinCircleIcon from 'src/icons/untitled-ui/duocolor/currency-bitcoin-circle';
 import File01Icon from 'src/icons/untitled-ui/duocolor/file-01';
-import GraduationHat01Icon from 'src/icons/untitled-ui/duocolor/graduation-hat-01';
-import HomeSmileIcon from 'src/icons/untitled-ui/duocolor/home-smile';
 import LayoutAlt02Icon from 'src/icons/untitled-ui/duocolor/layout-alt-02';
 import LineChartUp04Icon from 'src/icons/untitled-ui/duocolor/line-chart-up-04';
 import Lock01Icon from 'src/icons/untitled-ui/duocolor/lock-01';

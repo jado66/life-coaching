@@ -52,8 +52,14 @@ export const paths = {
       index: '/dashboard/academy',
       courseDetails: '/dashboard/academy/courses/:courseId',
     },
+    aiAssistant: {
+      index: '/dashboard/ai-assistant',
+      edit: '/dashboard/ai-assistant/edit',
+      test: '/dashboard/ai-assistant/test',
+    },
     account: '/dashboard/account',
     analytics: '/dashboard/analytics',
+    applications: '/dashboard/applications',
     blank: '/dashboard/blank',
     blog: {
       index: '/dashboard/blog',

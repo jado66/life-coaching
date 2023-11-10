@@ -3,34 +3,14 @@ import { useTranslation } from 'react-i18next';
 import Chip from '@mui/material/Chip';
 import SvgIcon from '@mui/material/SvgIcon';
 
-import AlignLeft02Icon from 'src/icons/untitled-ui/duocolor/align-left-02';
 import BarChartSquare02Icon from 'src/icons/untitled-ui/duocolor/bar-chart-square-02';
-import Building04Icon from 'src/icons/untitled-ui/duocolor/building-04';
-import CalendarIcon from 'src/icons/untitled-ui/duocolor/calendar';
-import CheckDone01Icon from 'src/icons/untitled-ui/duocolor/check-done-01';
-import CreditCard01Icon from 'src/icons/untitled-ui/duocolor/credit-card-01';
-import CurrencyBitcoinCircleIcon from 'src/icons/untitled-ui/duocolor/currency-bitcoin-circle';
-import File01Icon from 'src/icons/untitled-ui/duocolor/file-01';
 import GraduationHat01Icon from 'src/icons/untitled-ui/duocolor/graduation-hat-01';
-import HomeSmileIcon from 'src/icons/untitled-ui/duocolor/home-smile';
-import LayoutAlt02Icon from 'src/icons/untitled-ui/duocolor/layout-alt-02';
-import LineChartUp04Icon from 'src/icons/untitled-ui/duocolor/line-chart-up-04';
-import Lock01Icon from 'src/icons/untitled-ui/duocolor/lock-01';
-import LogOut01Icon from 'src/icons/untitled-ui/duocolor/log-out-01';
-import Mail03Icon from 'src/icons/untitled-ui/duocolor/mail-03';
-import Mail04Icon from 'src/icons/untitled-ui/duocolor/mail-04';
-import MessageChatSquareIcon from 'src/icons/untitled-ui/duocolor/message-chat-square';
-import ReceiptCheckIcon from 'src/icons/untitled-ui/duocolor/receipt-check';
-import Share07Icon from 'src/icons/untitled-ui/duocolor/share-07';
-import ShoppingBag03Icon from 'src/icons/untitled-ui/duocolor/shopping-bag-03';
-import ShoppingCart01Icon from 'src/icons/untitled-ui/duocolor/shopping-cart-01';
-import Truck01Icon from 'src/icons/untitled-ui/duocolor/truck-01';
-import Upload04Icon from 'src/icons/untitled-ui/duocolor/upload-04';
 import Users03Icon from 'src/icons/untitled-ui/duocolor/users-03';
-import XSquareIcon from 'src/icons/untitled-ui/duocolor/x-square';
 import { tokens } from 'src/locales/tokens';
 import { paths } from 'src/paths';
-import { AccountCircle, Dashboard } from '@mui/icons-material';
+import { AccountCircle, BuildCircleOutlined, Dashboard, SmartToyOutlined } from '@mui/icons-material';
+import { LineChartUp04, ReceiptCheck } from '@untitled-ui/icons-react';
+import MessageChatSquare from '@untitled-ui/icons-react/build/esm/MessageChatSquare';
 
 export const useCoachSections = () => {
   const { t } = useTranslation();
@@ -45,24 +25,6 @@ export const useCoachSections = () => {
             icon: (
               <SvgIcon fontSize="small">
                 <Dashboard />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.analytics),
-            path: paths.dashboard.analytics,
-            icon: (
-              <SvgIcon fontSize="small">
-                <BarChartSquare02Icon />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.account),
-            path: paths.dashboard.account,
-            icon: (
-              <SvgIcon fontSize="small">
-                <AccountCircle />
               </SvgIcon>
             ),
           },
@@ -90,12 +52,99 @@ export const useCoachSections = () => {
             ],
           },
           {
+            title: t(tokens.nav.aiAssistant),
+            path: paths.dashboard.aiAssistant.index,
+            icon: (
+              <SvgIcon fontSize="small">
+                <SmartToyOutlined />
+              </SvgIcon>
+            ),
+            items: [
+              {
+                title: t(tokens.nav.dashboard),
+                path: paths.dashboard.aiAssistant.index,
+              },
+              {
+                title: t(tokens.nav.edit),
+                path: paths.dashboard.aiAssistant.edit,
+              },
+              {
+                title: t(tokens.nav.test),
+                path: paths.dashboard.aiAssistant.test,
+              },
+              {
+                title: t(tokens.nav.applications),
+                path: paths.dashboard.aiAssistant.applications,
+              },
+            ],
+          },
+          {
+            title: t(tokens.nav.applications),
+            path: paths.dashboard.applications,
+            icon: (
+              <SvgIcon fontSize="small">
+                <BuildCircleOutlined />
+              </SvgIcon>
+            ),
+          },
+          {
+            title: t(tokens.nav.analytics),
+            path: paths.dashboard.analytics,
+            icon: (
+              <SvgIcon fontSize="small">
+                <BarChartSquare02Icon />
+              </SvgIcon>
+            ),
+          },
+          {
+            title: t(tokens.nav.invoiceList),
+            path: paths.dashboard.invoices.index,
+            icon: (
+              <SvgIcon fontSize="small">
+                <ReceiptCheck />
+              </SvgIcon>
+            ),
+            items: [
+              {
+                title: t(tokens.nav.list),
+                path: paths.dashboard.invoices.index,
+              },
+              {
+                title: t(tokens.nav.details),
+                path: paths.dashboard.invoices.details,
+              },
+            ],
+          },
+          {
+            title: t(tokens.nav.account),
+            path: paths.dashboard.account,
+            icon: (
+              <SvgIcon fontSize="small">
+                <AccountCircle />
+              </SvgIcon>
+            ),
+          },
+          
+        ],
+      },
+      
+      {
+        subheader: 'Post MPV',
+        items: [
+          {
             title: t(tokens.nav.academy),
             path: paths.dashboard.academy.index,
             icon: (
               <SvgIcon fontSize="small">
                 <GraduationHat01Icon />
               </SvgIcon>
+            ),
+            label: (
+              <Chip
+                color="primary"
+                label="New"
+                size="small"
+              />
             ),
             items: [
               {
@@ -107,6 +156,24 @@ export const useCoachSections = () => {
                 path: paths.dashboard.academy.courseDetails,
               },
             ],
+          },
+          {
+            title: t(tokens.nav.ecommerce),
+            path: paths.dashboard.ecommerce,
+            icon: (
+              <SvgIcon fontSize="small">
+                <LineChartUp04 />
+              </SvgIcon>
+            ),
+          },
+          {
+            title: t(tokens.nav.chat),
+            path: paths.dashboard.chat,
+            icon: (
+              <SvgIcon fontSize="small">
+                <MessageChatSquare />
+              </SvgIcon>
+            ),
           },
         ],
       }
