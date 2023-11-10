@@ -129,7 +129,7 @@ export const useCoachSections = () => {
       },
       
       {
-        subheader: 'Post MPV',
+        subheader: 'Post MVP',
         items: [
           {
             title: t(tokens.nav.academy),
