@@ -41,7 +41,7 @@ export const useUserSections = () => {
         items: [
           {
             title: t(tokens.nav.home),
-            path: paths.dashboard.index,
+            path: paths.home,
             icon: (
               <SvgIcon fontSize="small">
                 <Dashboard />
@@ -64,7 +64,17 @@ export const useUserSections = () => {
               <SvgIcon fontSize="small">
                 <GraduationHat01Icon />
               </SvgIcon>
-            )
+            ),
+            items: [
+              {
+                title: t(tokens.nav.list),
+                path: paths.dashboard.challenges.index,
+              },
+              {
+                title: t(tokens.nav.completed),
+                path: paths.dashboard.challenges.completed,
+              },
+            ],
           },
         ],
       }

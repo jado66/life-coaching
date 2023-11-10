@@ -1,12 +1,12 @@
 import { createContext } from 'react';
 
 export const defaultSettings = {
-  accountType: 'coach',
+  accountType: 'user',
   colorPreset: 'red',
   contrast: 'normal',
   direction: 'ltr',
   layout: 'vertical',
-  navColor: 'evident',
+  navColor: 'discrete',
   paletteMode: 'light',
   responsiveFontSizes: true,
   stretch: false,

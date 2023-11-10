@@ -79,6 +79,15 @@ export const useCoachSections = () => {
             ],
           },
           {
+            title: t(tokens.nav.appSettings),
+            path: paths.dashboard.appSettings,
+            // icon: (
+            //   <SvgIcon fontSize="small">
+            //     <Gear />
+            //   </SvgIcon>
+            // ),
+          },
+          {
             title: t(tokens.nav.applications),
             path: paths.dashboard.applications,
             icon: (

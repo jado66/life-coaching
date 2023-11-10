@@ -61,6 +61,7 @@ export const paths = {
     account: '/dashboard/account',
     analytics: '/dashboard/analytics',
     applications: '/dashboard/applications',
+    appSettings: '/dashboard/app-settings',
     blank: '/dashboard/blank',
     blog: {
       index: '/dashboard/blog',
@@ -69,6 +70,10 @@ export const paths = {
     },
     calendar: '/dashboard/calendar',
     chat: '/dashboard/chat',
+    challenges: {
+      index: '/dashboard/challenges',
+      completed: '/dashboard/challenges/completed',
+    },
     crypto: '/dashboard/crypto',
     customers: {
       index: '/dashboard/customers',
@@ -128,6 +133,7 @@ export const paths = {
     colors: '/components/colors',
     inputs: '/components/inputs',
   },
+  home: '/home',
   docs: 'https://material-kit-pro-react-docs.devias.io',
   notAuthorized: '/401',
   notFound: '/404',

@@ -17,6 +17,7 @@ import { ChatSidebar } from 'src/sections/dashboard/chat/chat-sidebar';
 import { ChatThread } from 'src/sections/dashboard/chat/chat-thread';
 import { useDispatch } from 'src/store';
 import { thunks } from 'src/thunks/chat';
+import { QuestionAnswerOutlined } from '@mui/icons-material';
 
 /**
  * NOTE:
@@ -44,7 +45,7 @@ const useThreads = () => {
 const useSidebar = () => {
   const searchParams = useSearchParams();
   const mdUp = useMediaQuery((theme) => theme.breakpoints.up('md'));
-  const [open, setOpen] = useState(mdUp);
+  const [open, setOpen] = useState(true);
 
   const handleScreenResize = useCallback(() => {
     if (!mdUp) {
@@ -54,13 +55,13 @@ const useSidebar = () => {
     }
   }, [mdUp]);
 
-  useEffect(
-    () => {
-      handleScreenResize();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [mdUp]
-  );
+  // useEffect(
+  //   () => {
+  //     handleScreenResize();
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [mdUp]
+  // );
 
   const handeParamsUpdate = useCallback(() => {
     if (!mdUp) {
@@ -68,13 +69,13 @@ const useSidebar = () => {
     }
   }, [mdUp]);
 
-  useEffect(
-    () => {
-      handeParamsUpdate();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [searchParams]
-  );
+  // useEffect(
+  //   () => {
+  //     handeParamsUpdate();
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [searchParams]
+  // );
 
   const handleToggle = useCallback(() => {
     setOpen((prevState) => !prevState);
@@ -137,7 +138,7 @@ const Page = () => {
             <Box sx={{ p: 2 }}>
               <IconButton onClick={sidebar.handleToggle}>
                 <SvgIcon>
-                  <Menu01Icon />
+                  <QuestionAnswerOutlined />
                 </SvgIcon>
               </IconButton>
             </Box>

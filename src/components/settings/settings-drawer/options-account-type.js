@@ -60,6 +60,6 @@ export const OptionsAccountType = (props) => {
   
   OptionsAccountType.propTypes = {
     onChange: PropTypes.func,
-    value: PropTypes.oneOf(['coach', 'user']),
+    value: PropTypes.oneOf(['coach', 'user', 'dev']),
   };
   
