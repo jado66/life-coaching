@@ -116,10 +116,14 @@ export const SettingsDrawer = (props) => {
             </IconButton>
           </Stack>
         </Stack>
+
+
         <Stack
           spacing={5}
           sx={{ p: 3 }}
         >
+                  Values {JSON.stringify(values)}
+
           <OptionsAccountType
             onChange={(value) => handleFieldUpdate('accountType', value)}
             value={values.accountType}

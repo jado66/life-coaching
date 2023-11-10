@@ -1,7 +1,6 @@
 import { createContext } from 'react';
 
 export const defaultSettings = {
-  accountType: 'user',
   colorPreset: 'red',
   contrast: 'normal',
   direction: 'ltr',
@@ -10,6 +9,7 @@ export const defaultSettings = {
   paletteMode: 'light',
   responsiveFontSizes: true,
   stretch: false,
+  isImpersonating: false,
 };
 
 export const initialState = {

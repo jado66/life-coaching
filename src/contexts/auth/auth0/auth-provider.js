@@ -78,8 +78,6 @@ export const AuthProvider = (props) => {
               id: user.sub,
               avatar: user.picture,
               email: user.email,
-              name: 'Cole Zesiger',
-              plan: 'Premium',
             },
           },
         });
@@ -130,10 +128,7 @@ export const AuthProvider = (props) => {
       payload: {
         user: {
           id: user.sub,
-          avatar: user.picture,
           email: user.email,
-          name: 'Cole Zesiger',
-          plan: 'Premium',
         },
       },
     });

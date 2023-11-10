@@ -8,11 +8,11 @@ import SvgIcon from '@mui/material/SvgIcon';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { AccountButton } from '../account-button';
+import { ContactsButton } from '../contacts-button';
+import { LanguageSwitch } from '../language-switch';
 import { NotificationsButton } from '../notifications-button';
 import { SearchButton } from '../search-button';
-import { Tooltip, Typography } from '@mui/material';
-import { ChevronLeft } from '@mui/icons-material';
-import { useSettings } from 'src/hooks/use-settings';
+import { Typography } from '@mui/material';
 
 const TOP_NAV_HEIGHT = 64;
 const SIDE_NAV_WIDTH = 280;
@@ -20,8 +20,6 @@ const SIDE_NAV_WIDTH = 280;
 export const TopNav = (props) => {
   const { onMobileNavOpen, ...other } = props;
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
-
-  const { isImpersonating, resetAccountType } = useSettings();
 
   return (
     <Box
@@ -44,11 +42,14 @@ export const TopNav = (props) => {
       <Stack
         alignItems="center"
         direction="column"
+        spacing={2}
         sx={{
           width: '100%',
         }}
       >
-      
+       
+        <Typography variant="h6">Untitled UI</Typography>
+        
         <Stack
           direction="row"  
           justifyContent="space-between"
@@ -70,26 +71,6 @@ export const TopNav = (props) => {
             )}
             <SearchButton />
           </Stack>
-
-          { isImpersonating && (
-            <Box
-              sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '48px',
-                width: '100%',
-              }}
-              >
-              <Tooltip title="Go back to Coach View">
-                <IconButton onClick={resetAccountType}>
-                  <ChevronLeft />
-                </IconButton>
-              </Tooltip>
-              <Typography variant="h6" sx={{marginBottom: '0px'}}>Impersonating a User Account</Typography>
-            </Box>)
-          }
-          
           <Stack
             alignItems="center"
             direction="row"

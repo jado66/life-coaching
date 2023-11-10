@@ -20,42 +20,19 @@ import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { useRouter } from 'src/hooks/use-router';
 import { paths } from 'src/paths';
 import { Issuer } from 'src/utils/auth';
+import { useUser } from 'src/hooks/use-user';
 
 export const AccountPopover = (props) => {
   const { anchorEl, onClose, open, ...other } = props;
   const router = useRouter();
   const auth = useAuth();
-  const user = useMockedUser();
+  const mockUser = useMockedUser();
+  const {user} = useUser();
 
   const handleLogout = useCallback(async () => {
     try {
       onClose?.();
-
-      switch (auth.issuer) {
-        case Issuer.Amplify: {
-          await auth.signOut();
-          break;
-        }
-
-        case Issuer.Auth0: {
-          await auth.logout();
-          break;
-        }
-
-        case Issuer.Firebase: {
-          await auth.signOut();
-          break;
-        }
-
-        case Issuer.JWT: {
-          await auth.signOut();
-          break;
-        }
-
-        default: {
-          console.warn('Using an unknown Auth Issuer, did not log out');
-        }
-      }
+      await auth.logout();
 
       router.push(paths.index);
     } catch (err) {
@@ -78,12 +55,12 @@ export const AccountPopover = (props) => {
       {...other}
     >
       <Box sx={{ p: 2 }}>
-        <Typography variant="body1">{user.name}</Typography>
+        <Typography variant="body1">{user?.name}</Typography>
         <Typography
           color="text.secondary"
           variant="body2"
         >
-          cole@colezesiger.com
+          {user?.email}
         </Typography>
       </Box>
       <Divider />

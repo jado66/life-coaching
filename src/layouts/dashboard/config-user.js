@@ -76,8 +76,17 @@ export const useUserSections = () => {
               },
             ],
           },
+          {
+            title: t(tokens.nav.account),
+            path: paths.dashboard.account,
+            icon: (
+              <SvgIcon fontSize="small">
+                <AccountCircle />
+              </SvgIcon>
+            ),
+          }
         ],
-      }
+      },
     ];
   }, [t]);
 };

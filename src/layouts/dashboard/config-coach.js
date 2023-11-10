@@ -11,6 +11,7 @@ import { paths } from 'src/paths';
 import { AccountCircle, BuildCircleOutlined, Dashboard, SmartToyOutlined } from '@mui/icons-material';
 import { LineChartUp04, ReceiptCheck } from '@untitled-ui/icons-react';
 import MessageChatSquare from '@untitled-ui/icons-react/build/esm/MessageChatSquare';
+import Settings03Icon from '@untitled-ui/icons-react/build/esm/Settings03';
 
 export const useCoachSections = () => {
   const { t } = useTranslation();
@@ -81,11 +82,11 @@ export const useCoachSections = () => {
           {
             title: t(tokens.nav.appSettings),
             path: paths.dashboard.appSettings,
-            // icon: (
-            //   <SvgIcon fontSize="small">
-            //     <Gear />
-            //   </SvgIcon>
-            // ),
+            icon: (
+              <SvgIcon fontSize="small">
+                <Settings03Icon />
+              </SvgIcon>
+            ),
           },
           {
             title: t(tokens.nav.applications),
@@ -133,10 +134,8 @@ export const useCoachSections = () => {
               </SvgIcon>
             ),
           },
-          
         ],
       },
-      
       {
         subheader: 'Post MVP',
         items: [

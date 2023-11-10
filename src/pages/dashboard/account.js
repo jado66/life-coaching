@@ -17,6 +17,7 @@ import { AccountGeneralSettings } from 'src/sections/dashboard/account/account-g
 import { AccountNotificationsSettings } from 'src/sections/dashboard/account/account-notifications-settings';
 import { AccountTeamSettings } from 'src/sections/dashboard/account/account-team-settings';
 import { AccountSecuritySettings } from 'src/sections/dashboard/account/account-security-settings';
+import { useUser } from 'src/hooks/use-user';
 
 const now = new Date();
 
@@ -29,7 +30,8 @@ const tabs = [
 ];
 
 const Page = () => {
-  const user = useMockedUser();
+  const mockUser = useMockedUser();
+  const { user } = useUser();
   const [currentTab, setCurrentTab] = useState('general');
 
   usePageView();
@@ -76,7 +78,7 @@ const Page = () => {
           </Stack>
           {currentTab === 'general' && (
             <AccountGeneralSettings
-              avatar={user.avatar || ''}
+              avatar={mockUser.avatar || ''}
               email={user.email || ''}
               name={user.name || ''}
             />

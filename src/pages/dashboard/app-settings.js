@@ -48,62 +48,18 @@ const Page = () => {
         }}
       >
         <Container maxWidth="xl">
-          <Stack
-            spacing={3}
-            sx={{ mb: 3 }}
-          >
-            <Typography variant="h4">App Settings</Typography>
-            
-          </Stack>
-          <Stack
-            alignItems="center"
-            direction="row"
-            spacing={3}
-            sx={{
-                px: 3,
-                pt: 2,
-            }}
-            >
-            <Typography variant="h6">Reset to Defaults</Typography>
             <Stack
-                alignItems="center"
-                direction="row"
-                spacing={0.5}
+                spacing={3}
+                sx={{ mb: 3 }}
             >
-                <Badge
-                    anchorOrigin={{
-                        horizontal: 'right',
-                        vertical: 'top',
-                    }}
-                    color="error"
-                    sx={{
-                        [`& .${badgeClasses.badge}`]: {
-                        top: 6,
-                        right: 6,
-                        ...(!settings.isCustom && {
-                            display: 'none',
-                        }),
-                        },
-                    }}
-                    variant="dot"
-                    >
-                    <IconButton
-                        color="inherit"
-                        onClick={settings.handleReset}
-                    >
-                        <SvgIcon fontSize="small">
-                        <RefreshCcw01Icon />
-                        </SvgIcon>
-                    </IconButton>
-                    </Badge>   
-                    </Stack>
-                </Stack>
-            <Divider/>
+                <Typography variant="h4">App Settings</Typography>
+            </Stack>
+            
 
             <Stack
                 spacing={5}
                 sx={{ p: 3 }}
-                >
+            >
                 <OptionsAccountType
                     onChange={(value) => handleFieldUpdate('accountType', value)}
                     value={settings.accountType}
@@ -137,7 +93,52 @@ const Page = () => {
                     value={settings.direction}
                 />
             </Stack>
-            
+
+            <Divider/>
+
+            <Stack
+                alignItems="center"
+                direction="row"
+                spacing={3}
+                sx={{
+                    px: 3,
+                    pt: 2,
+                }}
+            >
+                <Typography variant="h6">Reset to Defaults</Typography>
+                <Stack
+                    alignItems="center"
+                    direction="row"
+                    spacing={0.5}
+                >
+                    <Badge
+                        anchorOrigin={{
+                            horizontal: 'right',
+                            vertical: 'top',
+                        }}
+                        color="error"
+                        sx={{
+                            [`& .${badgeClasses.badge}`]: {
+                            top: 6,
+                            right: 6,
+                            ...(!settings.isCustom && {
+                                display: 'none',
+                            }),
+                            },
+                        }}
+                        variant="dot"
+                    >
+                        <IconButton
+                            color="inherit"
+                            onClick={settings.handleReset}
+                        >
+                            <SvgIcon fontSize="small">
+                            <RefreshCcw01Icon />
+                            </SvgIcon>
+                        </IconButton>
+                    </Badge>   
+                </Stack>
+            </Stack>
         </Container>
       </Box>
     </>

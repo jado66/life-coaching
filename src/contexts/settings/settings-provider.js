@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { SettingsContext, initialState, defaultSettings } from './settings-context';
+import { useUser } from 'src/hooks/use-user';
 
 const STORAGE_KEY = 'app.settings';
 
@@ -41,7 +42,39 @@ const storeSettings = (value) => {
 
 export const SettingsProvider = (props) => {
   const { children } = props;
-  const [state, setState] = useState(initialState);
+
+  const { user } = useUser();
+  const [state, setState] = useState({
+    ...initialState,
+    accountType: user ? user.accountType : 'guest',
+  });
+
+  useEffect(() => {
+    if (user) {
+      setState((prevState) => ({
+        ...prevState,
+        accountType: user.accountType,
+      }));
+    }
+  }
+  , [user]);
+
+  useEffect(() => {
+
+    if (!user || !state.accountType) {
+      return;
+    }
+
+    const isImpersonating = state.accountType !== user.accountType;
+
+    console.log(state.accountType, user.accountType, isImpersonating)
+
+    setState((prevState) => ({
+      ...prevState,
+      isImpersonating,
+    }));
+  }
+  , [user, state.accountType]);
 
   useEffect(() => {
     const restored = restoreSettings();
@@ -113,6 +146,13 @@ export const SettingsProvider = (props) => {
     });
   }, [state]);
 
+  const resetAccountType = useCallback(() => {
+    setState((prevState) => ({
+      ...prevState,
+      accountType: user.accountType,
+    }));
+  }, [user]);
+
   return (
     <SettingsContext.Provider
       value={{
@@ -122,6 +162,7 @@ export const SettingsProvider = (props) => {
         handleReset,
         handleUpdate,
         isCustom,
+        resetAccountType
       }}
     >
       {children}

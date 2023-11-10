@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
+import { useUser } from 'src/hooks/use-user';
 
 const options = [
     {
@@ -24,11 +26,12 @@ export const OptionsAccountType = (props) => {
 
     return (
       <Stack spacing={1}>
+        
         <Typography
           color="text.secondary"
           variant="overline"
         >
-          Imperesonate Account Type
+          See what the app looks like for your users
         </Typography>
         <Stack
           alignItems="center"
@@ -36,23 +39,33 @@ export const OptionsAccountType = (props) => {
           flexWrap="wrap"
           gap={2}
         >
-          {options.map((option) => (
-            <Chip
-              icon={option.icon}
-              key={option.value}
-              label={option.label}
-              onClick={() => onChange?.(option.value)}
-              sx={{
-                borderColor: 'transparent',
-                borderRadius: 1.5,
-                borderStyle: 'solid',
-                borderWidth: 2,
-                ...(option.value === value && {
-                  borderColor: 'primary.main',
-                }),
-              }}
-            />
-          ))}
+          <Button
+            color="primary"
+            onClick={() => onChange?.('user')}
+            variant={value === 'user' ? 'contained' : 'outlined'}
+            sx={{
+              borderRadius: 1.5,
+              borderStyle: 'solid',
+              borderWidth: 2,
+            }}
+          >
+            Impersonate User Account
+          </Button>
+
+          <Button
+            color="primary"
+            onClick={() => onChange?.('dev')}
+            variant={value === 'dev' ? 'contained' : 'outlined'}
+            sx={{
+              borderRadius: 1.5,
+              borderStyle: 'solid',
+              borderWidth: 2,
+            }}
+          >
+            Impersonate Dev Account
+          </Button>
+
+          
         </Stack>
       </Stack>
     );
