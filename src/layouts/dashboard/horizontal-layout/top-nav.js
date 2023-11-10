@@ -20,6 +20,9 @@ import { LanguageSwitch } from '../language-switch';
 import { NotificationsButton } from '../notifications-button';
 import { TenantSwitch } from '../tenant-switch';
 import { TopNavSection } from './top-nav-section';
+import { useSettings } from 'src/hooks/use-settings';
+import { ChevronLeft } from '@mui/icons-material';
+import { Typography } from '@mui/material';
 
 const useCssVars = (color) => {
   const theme = useTheme();
@@ -157,6 +160,9 @@ export const TopNav = (props) => {
   const mdUp = useMediaQuery((theme) => theme.breakpoints.up('md'));
   const cssVars = useCssVars(color);
 
+  const { isImpersonating, resetAccountType, accountType } = useSettings();
+
+
   return (
     <Box
       component="header"
@@ -175,53 +181,84 @@ export const TopNav = (props) => {
     >
       <Stack
         alignItems="center"
-        direction="row"
+        direction="column"
         justifyContent="space-between"
-        spacing={2}
+        spacing={1}
         sx={{
           px: 3,
           py: 1,
         }}
       >
-        <Stack
-          alignItems="center"
-          direction="row"
-          spacing={2}
-        >
-          {!mdUp && (
-            <IconButton onClick={onMobileNav}>
-              <SvgIcon>
-                <Menu01Icon />
-              </SvgIcon>
-            </IconButton>
-          )}
-          <Box
-            component={RouterLink}
-            href={paths.index}
+        { isImpersonating && (
+            <Stack
+            alignItems="center"
+            direction="row"
+            spacing={2}
             sx={{
-              borderColor: 'var(--nav-logo-border)',
-              borderRadius: 1,
-              borderStyle: 'solid',
-              borderWidth: 1,
-              display: 'inline-flex',
-              height: 40,
-              p: '4px',
-              width: 40,
+              width: '100%'
             }}
           >
-            <Logo />
-          </Box>
-          <TenantSwitch />
-        </Stack>
+              <IconButton onClick={resetAccountType}>
+                <ChevronLeft />
+              </IconButton>
+              <Typography 
+                variant="h6" 
+                sx={{marginBottom: '0px', textTransform: 'capitalize'}}
+              >
+                Impersonating {accountType} Account
+              </Typography>
+            </Stack>
+            )
+          }
         <Stack
           alignItems="center"
           direction="row"
           spacing={2}
+          sx={{
+            width: '100%'
+          }}
         >
-          {/* <LanguageSwitch /> */}
-          <NotificationsButton />
-          <ContactsButton />
-          <AccountButton />
+
+          <Stack
+            alignItems="center"
+            direction="row"
+            spacing={2}
+          >
+            {!mdUp && (
+              <IconButton onClick={onMobileNav}>
+                <SvgIcon>
+                  <Menu01Icon />
+                </SvgIcon>
+              </IconButton>
+            )}
+            <Box
+              component={RouterLink}
+              href={paths.index}
+              sx={{
+                borderColor: 'var(--nav-logo-border)',
+                borderRadius: 1,
+                borderStyle: 'solid',
+                borderWidth: 1,
+                display: 'inline-flex',
+                height: 40,
+                p: '4px',
+                width: 40,
+              }}
+            >
+              <Logo />
+            </Box>
+            <TenantSwitch />
+          </Stack>
+          <Stack
+            alignItems="center"
+            direction="row"
+            spacing={2}
+          >
+            {/* <LanguageSwitch /> */}
+            <NotificationsButton />
+            {/* <ContactsButton /> */}
+            <AccountButton />
+          </Stack>
         </Stack>
       </Stack>
       {mdUp && (
