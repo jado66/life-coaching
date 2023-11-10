@@ -80,13 +80,18 @@ export const TopNav = (props) => {
                 height: '48px',
                 width: '100%',
               }}
-              >
+            >
               <Tooltip title="Go back to Coach View">
                 <IconButton onClick={resetAccountType}>
                   <ChevronLeft />
                 </IconButton>
               </Tooltip>
-              <Typography variant="h6" sx={{marginBottom: '0px'}}>Impersonating a User Account</Typography>
+              <Typography 
+                variant="h6" 
+                sx={{marginBottom: '0px'}}
+              >
+                Impersonating a User Account
+              </Typography>
             </Box>)
           }
           

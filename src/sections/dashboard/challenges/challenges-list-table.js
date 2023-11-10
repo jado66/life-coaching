@@ -40,7 +40,13 @@ export const ChallengesListTable = () => (
           <Card key={review.id}>
 
             <CardHeader
-                avatar={<img src="/assets/iconly/iconly-glass-star.svg" alt="GlassStar" style={{ width: 40, height: 40 }} />}
+                avatar={
+                  <img 
+                    src="/assets/iconly/iconly-glass-star.svg" 
+                    alt="GlassStar" 
+                    style={{ width: 40, height: 40 }} 
+                  />
+                }
                 disableTypography
               subheader={
                 <Box
