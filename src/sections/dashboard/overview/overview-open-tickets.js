@@ -28,7 +28,7 @@ export const OverviewOpenTickets = (props) => {
       >
         <div>
           <img
-            src="/assets/iconly/iconly-glass-paper.svg"
+            src="/assets/iconly/iconly-glass-message.svg"
             width={48}
           />
         </div>
@@ -37,7 +37,7 @@ export const OverviewOpenTickets = (props) => {
             color="text.secondary"
             variant="body2"
           >
-            Open tickets
+            Unread Emails
           </Typography>
           <Typography
             color="text.primary"
@@ -58,7 +58,7 @@ export const OverviewOpenTickets = (props) => {
           }
           size="small"
         >
-          See all tickets
+          Visit your inbox
         </Button>
       </CardActions>
     </Card>

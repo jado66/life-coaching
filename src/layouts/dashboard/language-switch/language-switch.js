@@ -38,11 +38,11 @@ export const LanguageSwitch = () => {
           </Box>
         </IconButton>
       </Tooltip>
-      <LanguagePopover
+      {/* <LanguagePopover
         anchorEl={popover.anchorRef.current}
         onClose={popover.handleClose}
         open={popover.open}
-      />
+      /> */}
     </>
   );
 };

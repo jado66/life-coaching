@@ -40,7 +40,7 @@ export const useUserSections = () => {
       {
         items: [
           {
-            title: t(tokens.nav.dashboard),
+            title: t(tokens.nav.home),
             path: paths.dashboard.index,
             icon: (
               <SvgIcon fontSize="small">
@@ -49,8 +49,8 @@ export const useUserSections = () => {
             ),
           },
           {
-            title: t(tokens.nav.analytics),
-            path: paths.dashboard.analytics,
+            title: t(tokens.nav.chat),
+            path: paths.dashboard.chat,
             icon: (
               <SvgIcon fontSize="small">
                 <BarChartSquare02Icon />
@@ -58,32 +58,13 @@ export const useUserSections = () => {
             ),
           },
           {
-            title: t(tokens.nav.account),
-            path: paths.dashboard.account,
-            icon: (
-              <SvgIcon fontSize="small">
-                <AccountCircle />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.academy),
-            path: paths.dashboard.academy.index,
+            title: t(tokens.nav.challenges),
+            path: paths.dashboard.challenges,
             icon: (
               <SvgIcon fontSize="small">
                 <GraduationHat01Icon />
               </SvgIcon>
-            ),
-            items: [
-              {
-                title: t(tokens.nav.dashboard),
-                path: paths.dashboard.academy.index,
-              },
-              {
-                title: t(tokens.nav.course),
-                path: paths.dashboard.academy.courseDetails,
-              },
-            ],
+            )
           },
         ],
       }

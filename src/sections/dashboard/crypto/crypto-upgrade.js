@@ -19,7 +19,7 @@ export const CryptoUpgrade = (props) => (
           },
         }}
       >
-        <img src="/assets/iconly/iconly-glass-tick.svg" />
+        <img src="/assets/iconly/iconly-glass-profile.svg" />
       </Box>
       <Typography
         align="center"

@@ -188,30 +188,6 @@ export const TopNav = (props) => {
               </Box>
             </Stack>
           )}
-          <Stack
-            alignItems="center"
-            direction="row"
-            justifyContent="flex-end"
-            spacing={2}
-            sx={{ flexGrow: 1 }}
-          >
-            <Button
-              component="a"
-              size={mdUp ? 'medium' : 'small'}
-              href="https://mui.com/store/items/devias-kit-pro"
-              target="_blank"
-              variant="contained"
-            >
-              Purchase Now
-            </Button>
-            {!mdUp && (
-              <IconButton onClick={onMobileNavOpen}>
-                <SvgIcon fontSize="small">
-                  <Menu01Icon />
-                </SvgIcon>
-              </IconButton>
-            )}
-          </Stack>
         </Stack>
       </Container>
     </Box>

@@ -28,7 +28,7 @@ export const OverviewDoneTasks = (props) => {
       >
         <div>
           <img
-            src="/assets/iconly/iconly-glass-tick.svg"
+            src="/assets/iconly/iconly-glass-profile.svg"
             width={48}
           />
         </div>
@@ -58,7 +58,7 @@ export const OverviewDoneTasks = (props) => {
           }
           size="small"
         >
-          See all tasks
+          See all clients
         </Button>
       </CardActions>
     </Card>

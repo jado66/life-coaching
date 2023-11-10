@@ -33,22 +33,6 @@ export const HomeCta = () => (
           written in JavaScript & TypeScript.
         </Typography>
       </Stack>
-      <Stack
-        alignItems="center"
-        direction="row"
-        justifyContent="center"
-        spacing={2}
-        sx={{ mt: 3 }}
-      >
-        <Button
-          component="a"
-          href="https://mui.com/store/items/devias-kit-pro"
-          target="_blank"
-          variant="contained"
-        >
-          Purchase Now
-        </Button>
-      </Stack>
     </Container>
   </Box>
 );
