@@ -60,21 +60,6 @@ export const Layout = (props) => {
               >
                 <Logo />
               </Box>
-              <Box
-                sx={{
-                  color: 'text.primary',
-                  fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontSize: 14,
-                  fontWeight: 800,
-                  letterSpacing: '0.3px',
-                  lineHeight: 2.5,
-                  '& span': {
-                    color: 'primary.main',
-                  },
-                }}
-              >
-                Devias Kit <span>PRO</span>
-              </Box>
             </Stack>
           </Stack>
         </Container>

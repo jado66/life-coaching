@@ -119,23 +119,6 @@ export const TopNav = (props) => {
               >
                 <Logo />
               </Box>
-              {mdUp && (
-                <Box
-                  sx={{
-                    color: 'text.primary',
-                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                    fontSize: 14,
-                    fontWeight: 800,
-                    letterSpacing: '0.3px',
-                    lineHeight: 2.5,
-                    '& span': {
-                      color: 'primary.main',
-                    },
-                  }}
-                >
-                  Devias Kit <span>PRO</span>
-                </Box>
-              )}
             </Stack>
             <Chip
               label={`v${version}`}
