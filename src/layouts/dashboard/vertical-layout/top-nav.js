@@ -21,7 +21,7 @@ export const TopNav = (props) => {
   const { onMobileNavOpen, ...other } = props;
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
 
-  const { isImpersonating, resetAccountType } = useSettings();
+  const { isImpersonating, resetAccountType, accountType } = useSettings();
 
   return (
     <Box
@@ -88,9 +88,9 @@ export const TopNav = (props) => {
               </Tooltip>
               <Typography 
                 variant="h6" 
-                sx={{marginBottom: '0px'}}
+                sx={{marginBottom: '0px', textTransform: 'capitalize'}}
               >
-                Impersonating a User Account
+                Impersonating {accountType} Account
               </Typography>
             </Box>)
           }
