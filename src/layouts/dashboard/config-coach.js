@@ -80,20 +80,20 @@ export const useCoachSections = () => {
             ],
           },
           {
-            title: t(tokens.nav.appSettings),
-            path: paths.dashboard.appSettings,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Settings03Icon />
-              </SvgIcon>
-            ),
-          },
-          {
             title: t(tokens.nav.applications),
             path: paths.dashboard.applications,
             icon: (
               <SvgIcon fontSize="small">
                 <BuildCircleOutlined />
+              </SvgIcon>
+            ),
+          },
+          {
+            title: t(tokens.nav.appSettings),
+            path: paths.dashboard.appSettings,
+            icon: (
+              <SvgIcon fontSize="small">
+                <Settings03Icon />
               </SvgIcon>
             ),
           },
@@ -105,25 +105,6 @@ export const useCoachSections = () => {
                 <BarChartSquare02Icon />
               </SvgIcon>
             ),
-          },
-          {
-            title: t(tokens.nav.invoiceList),
-            path: paths.dashboard.invoices.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <ReceiptCheck />
-              </SvgIcon>
-            ),
-            items: [
-              {
-                title: t(tokens.nav.list),
-                path: paths.dashboard.invoices.index,
-              },
-              {
-                title: t(tokens.nav.details),
-                path: paths.dashboard.invoices.details,
-              },
-            ],
           },
           {
             title: t(tokens.nav.account),
