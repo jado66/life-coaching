@@ -74,6 +74,7 @@ export const paths = {
       index: '/dashboard/invoices',
       details: '/dashboard/invoices/:orderId',
     },
+    helpCenter: '/dashboard/help',
     jobs: {
       index: '/dashboard/jobs',
       create: '/dashboard/jobs/create',

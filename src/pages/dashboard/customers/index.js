@@ -149,22 +149,11 @@ const Page = () => {
                     size="small"
                     startIcon={
                       <SvgIcon>
-                        <Upload01Icon />
-                      </SvgIcon>
-                    }
-                  >
-                    Import
-                  </Button>
-                  <Button
-                    color="inherit"
-                    size="small"
-                    startIcon={
-                      <SvgIcon>
                         <Download01Icon />
                       </SvgIcon>
                     }
                   >
-                    Export
+                    Export Data
                   </Button>
                 </Stack>
               </Stack>

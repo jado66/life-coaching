@@ -30,7 +30,7 @@ import Users03Icon from 'src/icons/untitled-ui/duocolor/users-03';
 import XSquareIcon from 'src/icons/untitled-ui/duocolor/x-square';
 import { tokens } from 'src/locales/tokens';
 import { paths } from 'src/paths';
-import { AccountCircle } from '@mui/icons-material';
+import { AccountCircle, Extension, OpenInNew } from '@mui/icons-material';
 
 export const useDevSections = () => {
   const { t } = useTranslation();
@@ -38,8 +38,51 @@ export const useDevSections = () => {
   return useMemo(() => {
     return [
         {
+            items: [
+            {
+                title: 'Devias Kit Docs',
+                external: true,
+                path: 'https://material-kit-pro-react-docs.devias.io/welcome',
+                icon: (
+                    <SvgIcon fontSize="small">
+                        <OpenInNew />
+                    </SvgIcon>
+                ),
+            },
+            {
+                title: 'Material UI Docs',
+                external: true,
+                path: 'https://mui.com/getting-started/usage/',
+                icon: (
+                    <SvgIcon fontSize="small">
+                        <OpenInNew />
+                    </SvgIcon>
+                )
+            },
+            {
+                title: 'Material UI Icons',
+                external: true,
+                path: 'https://mui.com/components/material-icons/',
+                icon: (
+                    <SvgIcon fontSize="small">
+                        <OpenInNew />
+                    </SvgIcon>
+                )
+            },
+            {
+                title: 'Devias Kit Components',
+                path: '/components',
+                icon: (
+                    <SvgIcon fontSize="small">
+                        <Extension />
+                    </SvgIcon>
+                )
+            }],
+        },
+        {
             subheader: t(tokens.nav.pages),
             items: [
+                
                 {
                     title: t(tokens.nav.auth),
                     icon: (

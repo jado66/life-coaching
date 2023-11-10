@@ -1,12 +1,10 @@
 import { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import File04Icon from '@untitled-ui/icons-react/build/esm/File04';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
-import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
 import { Logo } from 'src/components/logo';
@@ -16,6 +14,7 @@ import { usePathname } from 'src/hooks/use-pathname';
 import { paths } from 'src/paths';
 import { TenantSwitch } from '../tenant-switch';
 import { SideNavSection } from './side-nav-section';
+import { HelpCenter } from '@mui/icons-material';
 
 const SIDE_NAV_WIDTH = 280;
 
@@ -223,27 +222,13 @@ export const SideNav = (props) => {
             ))}
           </Stack>
           <Box sx={{ p: 3 }}>
-            <Typography variant="subtitle1">Need help?</Typography>
-            <Typography
-              color="neutral.400"
-              sx={{ mb: 2 }}
-              variant="body2"
-            >
-              Please check our docs.
-            </Typography>
             <Button
               component="a"
               fullWidth
-              href={paths.docs}
-              startIcon={
-                <SvgIcon>
-                  <File04Icon />
-                </SvgIcon>
-              }
-              target="_blank"
+              href={paths.dashboard.helpCenter}
               variant="contained"
             >
-              Documentation
+              Help Center
             </Button>
           </Box>
         </Stack>

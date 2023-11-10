@@ -77,7 +77,7 @@ export const CustomerListTable = (props) => {
             color="inherit"
             size="small"
           >
-            Delete
+            Remove
           </Button>
           <Button
             color="inherit"

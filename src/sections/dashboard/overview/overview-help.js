@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import Divider from '@mui/material/Divider';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
+import { paths } from 'src/paths';
 
 export const OverviewHelp = (props) => (
   <Card {...props}>
@@ -54,7 +55,9 @@ export const OverviewHelp = (props) => (
           </SvgIcon>
         }
         size="small"
-      >
+        component = "a"
+        href={paths.dashboard.helpCenter}
+        >
         Help Center
       </Button>
     </CardActions>

@@ -30,7 +30,7 @@ import Users03Icon from 'src/icons/untitled-ui/duocolor/users-03';
 import XSquareIcon from 'src/icons/untitled-ui/duocolor/x-square';
 import { tokens } from 'src/locales/tokens';
 import { paths } from 'src/paths';
-import { AccountCircle } from '@mui/icons-material';
+import { AccountCircle, Dashboard } from '@mui/icons-material';
 
 export const useCoachSections = () => {
   const { t } = useTranslation();
@@ -40,11 +40,11 @@ export const useCoachSections = () => {
       {
         items: [
           {
-            title: t(tokens.nav.overview),
+            title: t(tokens.nav.dashboard),
             path: paths.dashboard.index,
             icon: (
               <SvgIcon fontSize="small">
-                <HomeSmileIcon />
+                <Dashboard />
               </SvgIcon>
             ),
           },
@@ -67,7 +67,7 @@ export const useCoachSections = () => {
             ),
           },
           {
-            title: t(tokens.nav.customers),
+            title: t(tokens.nav.clients),
             path: paths.dashboard.customers.index,
             icon: (
               <SvgIcon fontSize="small">
