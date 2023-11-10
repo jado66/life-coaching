@@ -36,6 +36,7 @@ export const tokens = {
     kanban: 'nav.kanban',
     list: 'nav.list',
     login: 'nav.login',
+    logs: 'nav.logs',
     logistics: 'nav.logistics',
     mail: 'nav.mail',
     management: 'nav.management',

@@ -34,6 +34,7 @@ export const en = {
   [tokens.nav.kanban]: 'Kanban',
   [tokens.nav.list]: 'List',
   [tokens.nav.login]: 'Login',
+  [tokens.nav.logs]: 'Logs',
   [tokens.nav.logistics]: 'Logistics',
   [tokens.nav.mail]: 'Mail',
   [tokens.nav.management]: 'Management',

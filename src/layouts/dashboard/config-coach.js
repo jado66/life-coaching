@@ -73,8 +73,8 @@ export const useCoachSections = () => {
                 path: paths.dashboard.aiAssistant.test,
               },
               {
-                title: t(tokens.nav.applications),
-                path: paths.dashboard.aiAssistant.applications,
+                title: t(tokens.nav.logs),
+                path: paths.dashboard.aiAssistant.logs,
               },
             ],
           },

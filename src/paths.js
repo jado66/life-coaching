@@ -56,6 +56,7 @@ export const paths = {
       index: '/dashboard/ai-assistant',
       edit: '/dashboard/ai-assistant/edit',
       test: '/dashboard/ai-assistant/test',
+      logs: '/dashboard/ai-assistant/logs',
     },
     account: '/dashboard/account',
     analytics: '/dashboard/analytics',
