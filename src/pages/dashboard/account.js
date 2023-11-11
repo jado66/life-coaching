@@ -18,6 +18,7 @@ import { AccountNotificationsSettings } from 'src/sections/dashboard/account/acc
 import { AccountTeamSettings } from 'src/sections/dashboard/account/account-team-settings';
 import { AccountSecuritySettings } from 'src/sections/dashboard/account/account-security-settings';
 import { useUser } from 'src/hooks/use-user';
+import { AccountAppSettings } from 'src/sections/dashboard/account/account-app-settings';
 
 const now = new Date();
 
@@ -26,6 +27,7 @@ const tabs = [
   { label: 'Billing', value: 'billing' },
   { label: 'Team', value: 'team' },
   { label: 'Notifications', value: 'notifications' },
+  { label: 'App Display', value: 'app' },
   { label: 'Security', value: 'security' },
 ];
 
@@ -124,6 +126,7 @@ const Page = () => {
             />
           )}
           {currentTab === 'notifications' && <AccountNotificationsSettings />}
+          {currentTab === 'app' && <AccountAppSettings/> }
           {currentTab === 'security' && (
             <AccountSecuritySettings
               loginEvents={[

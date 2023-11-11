@@ -88,10 +88,10 @@ const Page = () => {
                     onChange={(value) => handleFieldUpdate('contrast', value)}
                     value={settings.contrast}
                 />
-                <OptionsDirection
+                {/* <OptionsDirection
                     onChange={(value) => handleFieldUpdate('direction', value)}
                     value={settings.direction}
-                />
+                /> */}
             </Stack>
 
             <Divider/>

@@ -61,7 +61,6 @@ export const paths = {
     account: '/dashboard/account',
     analytics: '/dashboard/analytics',
     applications: '/dashboard/applications',
-    appSettings: '/dashboard/app-settings',
     blank: '/dashboard/blank',
     blog: {
       index: '/dashboard/blog',
@@ -73,6 +72,8 @@ export const paths = {
     challenges: {
       index: '/dashboard/challenges',
       completed: '/dashboard/challenges/completed',
+      create: '/dashboard/challenges/create',
+      results: '/dashboard/challenges/results',
     },
     crypto: '/dashboard/crypto',
     customers: {

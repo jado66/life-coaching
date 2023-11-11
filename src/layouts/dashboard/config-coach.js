@@ -9,7 +9,7 @@ import Users03Icon from 'src/icons/untitled-ui/duocolor/users-03';
 import { tokens } from 'src/locales/tokens';
 import { paths } from 'src/paths';
 import { AccountCircle, BuildCircleOutlined, Dashboard, SmartToyOutlined } from '@mui/icons-material';
-import { LineChartUp04, ReceiptCheck } from '@untitled-ui/icons-react';
+import { LineChartUp04, MessageDotsSquare, ReceiptCheck } from '@untitled-ui/icons-react';
 import MessageChatSquare from '@untitled-ui/icons-react/build/esm/MessageChatSquare';
 import Settings03Icon from '@untitled-ui/icons-react/build/esm/Settings03';
 
@@ -53,6 +53,38 @@ export const useCoachSections = () => {
             ],
           },
           {
+            title: t(tokens.nav.chat),
+            path: paths.dashboard.chat,
+            icon: (
+              <SvgIcon fontSize="small">
+                <MessageDotsSquare />
+              </SvgIcon>
+            ),
+          },
+          {
+            title: t(tokens.nav.challenges),
+            path: paths.dashboard.challenges,
+            icon: (
+              <SvgIcon fontSize="small">
+                <GraduationHat01Icon />
+              </SvgIcon>
+            ),
+            items: [
+              {
+                title: t(tokens.nav.list),
+                path: paths.dashboard.challenges.index,
+              },
+              {
+                title: t(tokens.nav.create),
+                path: paths.dashboard.challenges.create,
+              },
+              {
+                title: t(tokens.nav.results),
+                path: paths.dashboard.challenges.results,
+              },
+            ],
+          },
+          {
             title: t(tokens.nav.aiAssistant),
             path: paths.dashboard.aiAssistant.index,
             icon: (
@@ -89,15 +121,6 @@ export const useCoachSections = () => {
             ),
           },
           {
-            title: t(tokens.nav.appSettings),
-            path: paths.dashboard.appSettings,
-            icon: (
-              <SvgIcon fontSize="small">
-                <Settings03Icon />
-              </SvgIcon>
-            ),
-          },
-          {
             title: t(tokens.nav.analytics),
             path: paths.dashboard.analytics,
             icon: (
@@ -117,55 +140,55 @@ export const useCoachSections = () => {
           },
         ],
       },
-      {
-        subheader: 'Post MVP',
-        items: [
-          {
-            title: t(tokens.nav.academy),
-            path: paths.dashboard.academy.index,
-            icon: (
-              <SvgIcon fontSize="small">
-                <GraduationHat01Icon />
-              </SvgIcon>
-            ),
-            label: (
-              <Chip
-                color="primary"
-                label="New"
-                size="small"
-              />
-            ),
-            items: [
-              {
-                title: t(tokens.nav.dashboard),
-                path: paths.dashboard.academy.index,
-              },
-              {
-                title: t(tokens.nav.course),
-                path: paths.dashboard.academy.courseDetails,
-              },
-            ],
-          },
-          {
-            title: t(tokens.nav.ecommerce),
-            path: paths.dashboard.ecommerce,
-            icon: (
-              <SvgIcon fontSize="small">
-                <LineChartUp04 />
-              </SvgIcon>
-            ),
-          },
-          {
-            title: t(tokens.nav.chat),
-            path: paths.dashboard.chat,
-            icon: (
-              <SvgIcon fontSize="small">
-                <MessageChatSquare />
-              </SvgIcon>
-            ),
-          },
-        ],
-      }
+      // {
+      //   subheader: 'Post MVP',
+      //   items: [
+      //     {
+      //       title: t(tokens.nav.academy),
+      //       path: paths.dashboard.academy.index,
+      //       icon: (
+      //         <SvgIcon fontSize="small">
+      //           <GraduationHat01Icon />
+      //         </SvgIcon>
+      //       ),
+      //       label: (
+      //         <Chip
+      //           color="primary"
+      //           label="New"
+      //           size="small"
+      //         />
+      //       ),
+      //       items: [
+      //         {
+      //           title: t(tokens.nav.dashboard),
+      //           path: paths.dashboard.academy.index,
+      //         },
+      //         {
+      //           title: t(tokens.nav.course),
+      //           path: paths.dashboard.academy.courseDetails,
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       title: t(tokens.nav.ecommerce),
+      //       path: paths.dashboard.ecommerce,
+      //       icon: (
+      //         <SvgIcon fontSize="small">
+      //           <LineChartUp04 />
+      //         </SvgIcon>
+      //       ),
+      //     },
+      //     {
+      //       title: t(tokens.nav.chat),
+      //       path: paths.dashboard.chat,
+      //       icon: (
+      //         <SvgIcon fontSize="small">
+      //           <MessageChatSquare />
+      //         </SvgIcon>
+      //       ),
+      //     },
+      //   ],
+      // }
     ];
   }, [t]);
 };
