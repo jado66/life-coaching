@@ -14,7 +14,7 @@ const Page = () => {
 
     router.push('/home');
   
-  }, []);
+  }, [router]);
 
   return null;
 };
