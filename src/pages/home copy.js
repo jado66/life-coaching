@@ -24,7 +24,6 @@ import { OverviewJobs } from 'src/sections/dashboard/overview/overview-jobs';
 import { OverviewOpenTickets } from 'src/sections/dashboard/overview/overview-open-tickets';
 import { OverviewTips } from 'src/sections/dashboard/overview/overview-tips';
 import { OverviewChallenges } from 'src/sections/dashboard/overview/overview-challenges';
-import Link from 'next/link';
 
 const now = new Date();
 
@@ -52,76 +51,23 @@ const Page = () => {
               lg: 4,
             }}
           >
-           
-
             <Grid xs={12}>
               <Stack
                 direction="row"
                 justifyContent="space-between"
                 spacing={4}
               >
-                <Button
-                  component="a"
-                  fullWidth
-                  variant="contained"
-                  href="https://www.calendly.com/colezesiger"
-                  target="_blank" // Add target="_blank" to open the link in a new tab or window
-                  sx={{
-                    fontSize: '2rem',
-                    padding: '1rem 2rem',
-                  }}
-                >
-                  Book a Call
-                </Button>
+                <div>
+                  <Typography variant="h4">Home</Typography>
+                </div>
                
               </Stack>
             </Grid>
-
-            <Grid xs={12}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                spacing={4}
-              >
-                <Button
-                   component={Link}
-                   fullWidth
-                   variant="contained"
-                   href='/dashboard/chat'
-                   sx={{
-                    fontSize: '2rem',
-                    padding: '1rem 2rem',
-                  }}
-                >
-                  Chat with Assistant
-                </Button>
-               
-              </Stack>
-            </Grid>
-
-            <Grid xs={12}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                spacing={4}
-              >
-                <Button
-                   component="a"
-                   fullWidth
-                   variant="contained"
-                   sx={{
-                    fontSize: '2rem',
-                    padding: '1rem 2rem',
-                  }}
-                >
-                  Plan
-                </Button>
-               
-              </Stack>
-            </Grid>
+          
             
             
-            {/* <Grid
+            
+            <Grid
               xs={12}
               md={8}
             >
@@ -169,8 +115,8 @@ const Page = () => {
                   },
                 ]}
               />
-            </Grid> */}
-            {/* <Grid
+            </Grid>
+            <Grid
               xs={12}
               md={4}
             >
@@ -199,7 +145,7 @@ const Page = () => {
                   },
                 ]}
               />
-            </Grid> */}
+            </Grid>
           </Grid>
         </Container>
       </Box>

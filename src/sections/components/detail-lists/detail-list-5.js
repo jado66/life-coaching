@@ -27,7 +27,7 @@ const order = {
     city: 'San Diego',
     country: 'USA',
     email: 'miron.vitold@devias.io',
-    name: 'Miron Vitold',
+    name: 'JD Erwin',
   },
   items: [
     {

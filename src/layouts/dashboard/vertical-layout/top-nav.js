@@ -13,6 +13,7 @@ import { SearchButton } from '../search-button';
 import { Tooltip, Typography } from '@mui/material';
 import { ChevronLeft } from '@mui/icons-material';
 import { useSettings } from 'src/hooks/use-settings';
+import { FlipBackward } from '@untitled-ui/icons-react';
 
 const TOP_NAV_HEIGHT = 64;
 const SIDE_NAV_WIDTH = 280;
@@ -68,7 +69,7 @@ export const TopNav = (props) => {
                 </SvgIcon>
               </IconButton>
             )}
-            <SearchButton />
+            {/* <SearchButton /> */}
           </Stack>
 
           { isImpersonating && (
@@ -83,7 +84,7 @@ export const TopNav = (props) => {
             >
               <Tooltip title="Go back to Coach View">
                 <IconButton onClick={resetAccountType}>
-                  <ChevronLeft />
+                  <FlipBackward />
                 </IconButton>
               </Tooltip>
               <Typography 

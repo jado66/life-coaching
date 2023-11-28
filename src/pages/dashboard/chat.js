@@ -96,14 +96,14 @@ const Page = () => {
   const rootRef = useRef(null);
   const searchParams = useSearchParams();
   const compose = searchParams.get('compose') === 'true';
-  const threadKey = searchParams.get('threadKey') || undefined;
+  const threadKey = '5e86805e2bafd54f66cc95c3'
   const sidebar = useSidebar();
 
   usePageView();
 
   useThreads();
 
-  const view = threadKey ? 'thread' : compose ? 'compose' : 'blank';
+  const view = 'thread' 
 
   return (
     <>
@@ -129,19 +129,19 @@ const Page = () => {
             top: 0,
           }}
         >
-          <ChatSidebar
+          {/* <ChatSidebar
             container={rootRef.current}
             onClose={sidebar.handleClose}
             open={sidebar.open}
-          />
+          /> */}
           <ChatContainer open={sidebar.open}>
-            <Box sx={{ p: 2 }}>
+            {/* <Box sx={{ p: 2 }}>
               <IconButton onClick={sidebar.handleToggle}>
                 <SvgIcon>
                   <QuestionAnswerOutlined />
                 </SvgIcon>
               </IconButton>
-            </Box>
+            </Box> */}
             <Divider />
             {view === 'thread' && <ChatThread threadKey={threadKey} />}
             {view === 'compose' && <ChatComposer />}

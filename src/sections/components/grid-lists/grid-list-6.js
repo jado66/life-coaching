@@ -28,7 +28,7 @@ const contacts = [
     id: '5e86805e2bafd54f66cc95c3',
     avatar: '/assets/avatars/avatar-miron-vitold.png',
     commonContacts: 5,
-    name: 'Miron Vitold',
+    name: 'JD Erwin',
     status: 'Not Connected',
   },
 ];

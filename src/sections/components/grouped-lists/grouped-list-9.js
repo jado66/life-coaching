@@ -25,7 +25,7 @@ const reviews = [
     id: 'to33twsyjphcfj55y3t07261',
     author: {
       avatar: '/assets/avatars/avatar-miron-vitold.png',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     comment:
       "Not the best people managers, poor management skills, poor career development programs. Communication from corporate & leadership isn't always clear and is sometime one-sided. Low pay compared to FANG.",

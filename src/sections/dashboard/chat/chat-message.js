@@ -41,8 +41,8 @@ export const ChatMessage = (props) => {
         <Box sx={{ flexGrow: 1 }}>
           <Card
             sx={{
-              backgroundColor: position === 'right' ? 'primary.main' : 'background.paper',
-              color: position === 'right' ? 'primary.contrastText' : 'text.primary',
+              backgroundColor: position === 'left' ? 'primary.main' : 'background.paper',
+              color: position === 'left' ? 'primary.contrastText' : 'text.primary',
               px: 2,
               py: 1,
             }}

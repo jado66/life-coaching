@@ -22,7 +22,7 @@ export const items = [
       },
       {
         avatar: '/assets/avatars/avatar-miron-vitold.png',
-        name: 'Miron Vitold',
+        name: 'JD Erwin',
       },
     ],
     size: 528381242,
@@ -63,7 +63,7 @@ export const items = [
     shared: [
       {
         avatar: '/assets/avatars/avatar-miron-vitold.png',
-        name: 'Miron Vitold',
+        name: 'JD Erwin',
       },
       {
         avatar: '/assets/avatars/avatar-alcides-antonio.png',

@@ -39,7 +39,7 @@ export const connections = [
     id: '5e86805e2bafd54f66cc95c3',
     avatar: '/assets/avatars/avatar-miron-vitold.png',
     commonConnections: 5,
-    name: 'Miron Vitold',
+    name: 'JD Erwin',
     status: 'not_connected',
   },
   {

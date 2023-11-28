@@ -54,7 +54,7 @@ const contacts = [
     avatar: '/assets/avatars/avatar-miron-vitold.png',
     isActive: false,
     lastActivity: subDays(now, 2).getTime(),
-    name: 'Miron Vitold',
+    name: 'JD Erwin',
   },
   {
     id: '5e887a1fbefd7938eea9c981',

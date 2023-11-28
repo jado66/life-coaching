@@ -21,7 +21,7 @@ export const Form1 = () => (
             label="Full name"
             name="name"
             required
-            value="Miron Vitold"
+            value="JD Erwin"
           />
         </Grid>
         <Grid

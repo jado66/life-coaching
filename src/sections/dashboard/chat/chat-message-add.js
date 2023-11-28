@@ -102,7 +102,7 @@ export const ChatMessageAdd = (props) => {
             </IconButton>
           </Box>
         </Tooltip>
-        <Tooltip title="Attach photo">
+        {/* <Tooltip title="Attach photo">
           <Box
             sx={{
               display: {
@@ -143,7 +143,7 @@ export const ChatMessageAdd = (props) => {
               </SvgIcon>
             </IconButton>
           </Box>
-        </Tooltip>
+        </Tooltip> */}
       </Box>
       <input
         hidden

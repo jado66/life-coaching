@@ -146,7 +146,7 @@ Marcus Finn
     from: {
       avatar: '/assets/avatars/avatar-miron-vitold.png',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     isImportant: false,
     isStarred: true,

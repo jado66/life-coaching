@@ -40,10 +40,10 @@ export const contacts = [
   },
   {
     id: '5e86805e2bafd54f66cc95c3',
-    avatar: '/assets/avatars/avatar-miron-vitold.png',
+    avatar: '/assets/avatars/avatar-cole.png',
     isActive: false,
     lastActivity: subHours(now, 1).getTime(),
-    name: 'Miron Vitold',
+    name: 'Cole\'s Assistant',
   },
   {
     id: '5e887a1fbefd7938eea9c981',
@@ -85,56 +85,91 @@ export const contacts = [
 export const threads = [
   {
     id: '5e867eb9de721aecaccf4f7b',
+    // messages: [
+    //   {
+    //     id: '5e867f0a5bc0ff2bfa07bfa6',
+    //     attachments: [],
+    //     body: "Hey, nice projects! I really liked the one in react. What's your quote on kinda similar project?",
+    //     contentType: 'text',
+    //     createdAt: subDays(subHours(now, 10), 4).getTime(),
+    //     authorId: '5e86805e2bafd54f66cc95c3',
+    //   },
+    //   {
+    //     id: '5e867f167d5f78109ae9f2a4',
+    //     attachments: [],
+    //     body: 'I would need to know more details, but my hourly rate stats at $35/hour. Thanks!',
+    //     contentType: 'text',
+    //     createdAt: subDays(subHours(now, 2), 4).getTime(),
+    //     authorId: '5e86809283e28b96d2d38537',
+    //   },
+    //   {
+    //     id: '5e867f1c9ca72084693528f4',
+    //     attachments: [],
+    //     body: "Well it's a really easy one, I'm sure we can make it half of the price.",
+    //     contentType: 'text',
+    //     createdAt: subHours(now, 5).getTime(),
+    //     authorId: '5e86805e2bafd54f66cc95c3',
+    //   },
+    //   {
+    //     id: '5e867f22fd2e27a09849b4db',
+    //     attachments: [],
+    //     body: "Then why don't you make it if it's that easy? Sorry I'm not interetes, have fantastic day Adam!",
+    //     contentType: 'text',
+    //     createdAt: subHours(now, 3).getTime(),
+    //     authorId: '5e86809283e28b96d2d38537',
+    //   },
+    //   {
+    //     id: '5e867f28a34d45ac6eb5c41f',
+    //     attachments: [],
+    //     body: 'Last offer, $25 per hour',
+    //     contentType: 'text',
+    //     createdAt: subHours(now, 2).getTime(),
+    //     authorId: '5e86805e2bafd54f66cc95c3',
+    //   }
+    // ],
     messages: [
       {
-        id: '5e867f0a5bc0ff2bfa07bfa6',
+        id: "5e867f0a5bc0ff2bfa07bfa6",
         attachments: [],
-        body: "Hey, nice projects! I really liked the one in react. What's your quote on kinda similar project?",
-        contentType: 'text',
+        body: "Hi JD, I've reviewed your case. It's common for couples to face challenges. Let's talk about the communication patterns between you and your partner.",
+        contentType: "text",
         createdAt: subDays(subHours(now, 10), 4).getTime(),
-        authorId: '5e86805e2bafd54f66cc95c3',
+        authorId: "5e86805e2bafd54f66cc95c3" // Relationship Coach
       },
       {
-        id: '5e867f167d5f78109ae9f2a4',
+        id: "5e867f167d5f78109ae9f2a4",
         attachments: [],
-        body: 'I would need to know more details, but my hourly rate stats at $35/hour. Thanks!',
-        contentType: 'text',
+        body: "We're just not understanding each other anymore. Even small discussions turn into big arguments. Where do we start?",
+        contentType: "text",
         createdAt: subDays(subHours(now, 2), 4).getTime(),
-        authorId: '5e86809283e28b96d2d38537',
+        authorId: "5e86809283e28b96d2d38537" // Client JD
       },
       {
-        id: '5e867f1c9ca72084693528f4',
+        id: "5e867f1c9ca72084693528f4",
         attachments: [],
-        body: "Well it's a really easy one, I'm sure we can make it half of the price.",
-        contentType: 'text',
+        body: "It often helps to begin with active listening exercises. I can guide you through these. Both of you need to feel heard and validated.",
+        contentType: "text",
         createdAt: subHours(now, 5).getTime(),
-        authorId: '5e86805e2bafd54f66cc95c3',
+        authorId: "5e86805e2bafd54f66cc95c3" // Relationship Coach
       },
       {
-        id: '5e867f22fd2e27a09849b4db',
+        id: "5e867f22fd2e27a09849b4db",
         attachments: [],
-        body: "Then why don't you make it if it's that easy? Sorry I'm not interetes, have fantastic day Adam!",
-        contentType: 'text',
+        body: "Active listening sounds good, but how can we address the issues without ending up in another fight?",
+        contentType: "text",
         createdAt: subHours(now, 3).getTime(),
-        authorId: '5e86809283e28b96d2d38537',
+        authorId: "5e86809283e28b96d2d38537" // Client JD
       },
       {
-        id: '5e867f28a34d45ac6eb5c41f',
+        id: "5e867f28a34d45ac6eb5c41f",
         attachments: [],
-        body: 'Last offer, $25 per hour',
-        contentType: 'text',
+        body: "Setting ground rules for discussions can prevent escalation. For example, using 'I' statements instead of 'you' statements to express feelings without accusing.",
+        contentType: "text",
         createdAt: subHours(now, 2).getTime(),
-        authorId: '5e86805e2bafd54f66cc95c3',
-      },
-      {
-        id: '5e867f2dba984a3f78b33526',
-        attachments: [],
-        body: '/assets/covers/minimal-1-4x3-small.png',
-        contentType: 'image',
-        createdAt: subHours(now, 1).getTime(),
-        authorId: '5e86805e2bafd54f66cc95c3',
-      },
+        authorId: "5e86805e2bafd54f66cc95c3" // Relationship Coach
+      }
     ],
+    
     participantIds: ['5e86809283e28b96d2d38537', '5e86805e2bafd54f66cc95c3'],
     type: 'ONE_TO_ONE',
     unreadCount: 2,

@@ -59,7 +59,7 @@ const tasks = [
     members: [
       {
         avatar: '/assets/avatars/avatar-miron-vitold.png',
-        name: 'Miron Vitold',
+        name: 'JD Erwin',
       },
     ],
     title: 'Solve the bug for the showState',

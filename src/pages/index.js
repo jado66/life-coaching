@@ -1,29 +1,22 @@
-import { Seo } from 'src/components/seo';
-import { usePageView } from 'src/hooks/use-page-view';
-import { Layout as MarketingLayout } from 'src/layouts/marketing';
-import { HomeCta } from 'src/sections/home/home-cta';
-import { HomeFaqs } from 'src/sections/home/home-faqs';
-import { HomeFeatures } from 'src/sections/home/home-features';
-import { HomeHero } from 'src/sections/home/home-hero';
-import { HomeReviews } from 'src/sections/home/home-reviews';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Page = () => {
-  usePageView();
+  const router = useRouter();
 
-  return (
-    <>
-      <Seo />
-      <main>
-        <HomeHero />
-        <HomeFeatures />
-        <HomeReviews />
-        <HomeCta />
-        <HomeFaqs />
-      </main>
-    </>
-  );
+  useEffect(() => {
+    const accountType = "user"
+
+    if (accountType === 'admin') {
+      router.push('/dashboard');
+      return
+    }
+
+    router.push('/home');
+  
+  }, []);
+
+  return null;
 };
-
-Page.getLayout = (page) => <MarketingLayout>{page}</MarketingLayout>;
 
 export default Page;

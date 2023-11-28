@@ -82,7 +82,7 @@ const orders = [
     currency: '$',
     customer: {
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     number: 'DEV-98',
     paymentMethod: 'PayPal',

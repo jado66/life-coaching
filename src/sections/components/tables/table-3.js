@@ -104,7 +104,7 @@ const customers = [
     hasAcceptedMarketing: true,
     isProspect: true,
     isReturning: false,
-    name: 'Miron Vitold',
+    name: 'JD Erwin',
     totalSpent: 0.0,
     totalOrders: 0,
     state: 'California',

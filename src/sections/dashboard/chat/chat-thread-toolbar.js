@@ -109,7 +109,7 @@ export const ChatThreadToolbar = (props) => {
           direction="row"
           spacing={1}
         >
-          <IconButton>
+          {/* <IconButton>
             <SvgIcon>
               <PhoneIcon />
             </SvgIcon>
@@ -118,7 +118,7 @@ export const ChatThreadToolbar = (props) => {
             <SvgIcon>
               <Camera01Icon />
             </SvgIcon>
-          </IconButton>
+          </IconButton> */}
           <Tooltip title="More options">
             <IconButton
               onClick={popover.handleOpen}

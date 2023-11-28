@@ -13,7 +13,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -48,7 +48,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -83,7 +83,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -118,7 +118,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -153,7 +153,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -188,7 +188,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -223,7 +223,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -258,7 +258,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -293,7 +293,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -328,7 +328,7 @@ export const orders = [
       city: 'San Diego',
       country: 'USA',
       email: 'miron.vitold@devias.io',
-      name: 'Miron Vitold',
+      name: 'JD Erwin',
     },
     items: [
       {
@@ -366,7 +366,7 @@ export const order = {
     city: 'San Diego',
     country: 'USA',
     email: 'miron.vitold@devias.io',
-    name: 'Miron Vitold',
+    name: 'JD Erwin',
   },
   items: [
     {

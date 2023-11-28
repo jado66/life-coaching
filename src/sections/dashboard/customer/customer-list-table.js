@@ -22,6 +22,7 @@ import { RouterLink } from 'src/components/router-link';
 import { Scrollbar } from 'src/components/scrollbar';
 import { paths } from 'src/paths';
 import { getInitials } from 'src/utils/get-initials';
+import { MessageDotsSquare } from '@untitled-ui/icons-react';
 
 export const CustomerListTable = (props) => {
   const {
@@ -174,7 +175,16 @@ export const CustomerListTable = (props) => {
                   <TableCell>
                     <Typography variant="subtitle2">{totalSpent}</Typography>
                   </TableCell>
+                  
                   <TableCell align="right">
+                    <IconButton
+                        component={RouterLink}
+                        href={paths.dashboard.customers.details}
+                      >
+                      <SvgIcon>
+                        <MessageDotsSquare />
+                      </SvgIcon>
+                    </IconButton>
                     <IconButton
                       component={RouterLink}
                       href={paths.dashboard.customers.edit}
@@ -183,6 +193,7 @@ export const CustomerListTable = (props) => {
                         <Edit02Icon />
                       </SvgIcon>
                     </IconButton>
+                    
                     <IconButton
                       component={RouterLink}
                       href={paths.dashboard.customers.details}
@@ -191,6 +202,7 @@ export const CustomerListTable = (props) => {
                         <ArrowRightIcon />
                       </SvgIcon>
                     </IconButton>
+                    
                   </TableCell>
                 </TableRow>
               );
