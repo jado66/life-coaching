@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { UserContext, defaultUser } from './user-context';
+import { UserContext } from './user-context';
 import { useAuth } from 'src/hooks/use-auth';
 import { createNewUser } from './create-new-user';
 
