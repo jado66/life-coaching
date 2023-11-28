@@ -25,18 +25,3 @@ const Page = () => {
 };
 
 Page.getLayout = (page) => <MarketingLayout>{page}</MarketingLayout>;
-
-export default Page;
-import { useRouter } from 'next/router';
-
-const Page = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push('/dashboard');
-  }, []);
-
-  return null;
-};
-
-export default Page;
