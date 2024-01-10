@@ -12,6 +12,10 @@ const useStreak = () => {
         // Sort streakDates in descending order to make sure we start from the most recent date
         streakDates.sort((a, b) => new Date(b) - new Date(a));
 
+        if(streakDates[streakDates.length - 1] === today){
+            setHasCheckedInToday(true);
+        }
+
         // Loop over sorted streakDates starting with the most recent
         for (let i = 0; i < streakDates.length; i++) {
             const streakDate = new Date(streakDates[i]);
@@ -40,7 +44,6 @@ const useStreak = () => {
 
         // if user has already checked in today, do nothing
         if (hasCheckedInToday || streakDates[streakDates.length - 1] === today) {
-            
             return;
         }
 
