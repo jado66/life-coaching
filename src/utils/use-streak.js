@@ -12,7 +12,7 @@ const useStreak = () => {
         // Sort streakDates in descending order to make sure we start from the most recent date
         streakDates.sort((a, b) => new Date(b) - new Date(a));
 
-        if(streakDates[streakDates.length - 1] === today){
+        if(streakDates[streakDates.length - 1] === today.toISOString().split('T')[0]){
             setHasCheckedInToday(true);
         }
 
