@@ -67,7 +67,7 @@ export const SettingsProvider = (props) => {
 
     const isImpersonating = state.accountType !== user.accountType;
 
-    console.log(state.accountType, user.accountType, isImpersonating)
+    console.log("State Account Type:",state.accountType, "| User Account Type:",  user.accountType,"| Is Imperstonating:", isImpersonating)
 
     setState((prevState) => ({
       ...prevState,

@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
+import { CircularProgress as MuiCircularProgress } from '@mui/material';
+
+import { useTheme } from '@mui/material/styles';
 
 const CircularProgressRoot = styled('div')({
   height: 56,
@@ -24,6 +27,20 @@ const CircularProgressValue = styled('path')(({ theme }) => ({
   },
 }));
 
+
+
+export const CircularProgressSpinner = () => {
+  const theme = useTheme();
+
+  return (
+    <MuiCircularProgress 
+      style={{
+        color: theme.palette.primary.main,
+      }}
+    />
+  );
+}
+
 export const CircularProgress = (props) => {
   const { value, ...other } = props;
 
@@ -34,10 +51,17 @@ export const CircularProgress = (props) => {
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
           strokeDasharray="100, 100"
         />
-        <CircularProgressValue
-          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-          strokeDasharray={`${value}, 100`}
-        />
+        {
+          value !== undefined ? (
+            <CircularProgressSpinner/>
+          )
+          :
+            <CircularProgressValue
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              strokeDasharray={`${value}, 100`}
+            />
+        }
+        
       </svg>
     </CircularProgressRoot>
   );

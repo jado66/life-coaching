@@ -1,13 +1,16 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useSettings } from 'src/hooks/use-settings';
 
 const Page = () => {
   const router = useRouter();
 
-  useEffect(() => {
-    const accountType = "user"
+  const { accountType } = useSettings();
 
-    if (accountType === 'admin') {
+
+  useEffect(() => {
+
+    if (accountType === 'coach') {
       router.push('/dashboard');
       return
     }

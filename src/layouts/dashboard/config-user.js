@@ -28,9 +28,8 @@ import Truck01Icon from 'src/icons/untitled-ui/duocolor/truck-01';
 import Upload04Icon from 'src/icons/untitled-ui/duocolor/upload-04';
 import Users03Icon from 'src/icons/untitled-ui/duocolor/users-03';
 import XSquareIcon from 'src/icons/untitled-ui/duocolor/x-square';
-import { tokens } from 'src/locales/tokens';
-import { paths } from 'src/paths';
-import { AccountCircle, Dashboard } from '@mui/icons-material';
+import { externalPaths, paths } from 'src/paths';
+import { AccountCircle, Assignment, Call, ChatBubble, Dashboard, Home } from '@mui/icons-material';
 
 export const useUserSections = () => {
   const { t } = useTranslation();
@@ -40,44 +39,44 @@ export const useUserSections = () => {
       {
         items: [
           {
-            title: t(tokens.nav.home),
+            title: t('nav.home'),
             path: paths.home,
             icon: (
               <SvgIcon fontSize="small">
-                <Dashboard />
+                <Home />
               </SvgIcon>
             ),
           },
           {
-            title: t(tokens.nav.chat),
-            path: paths.dashboard.chat,
+            title: t('nav.call'),
+            external: true,
+            path: externalPaths.calendly,
             icon: (
               <SvgIcon fontSize="small">
-                <BarChartSquare02Icon />
+                <Call />
               </SvgIcon>
             ),
           },
           {
-            title: t(tokens.nav.challenges),
-            path: paths.dashboard.challenges,
+            title: t('nav.chat'),
+            path: paths.chat,
             icon: (
               <SvgIcon fontSize="small">
-                <GraduationHat01Icon />
+                <ChatBubble />
               </SvgIcon>
             ),
-            items: [
-              {
-                title: t(tokens.nav.list),
-                path: paths.dashboard.challenges.index,
-              },
-              {
-                title: t(tokens.nav.completed),
-                path: paths.dashboard.challenges.completed,
-              },
-            ],
           },
           {
-            title: t(tokens.nav.account),
+            title: t('nav.plan'),
+            path: paths.plan,
+            icon: (
+              <SvgIcon fontSize="small">
+                <Assignment />
+              </SvgIcon>
+            ),
+          },
+          {
+            title: t('nav.account'),
             path: paths.dashboard.account,
             icon: (
               <SvgIcon fontSize="small">

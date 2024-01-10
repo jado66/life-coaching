@@ -3,6 +3,6 @@ export const createNewUser = (user) => ({
     avatar: user.picture,
     email: user.email,
     name: 'New User',
-    accountType: 'coach',
+    accountType: 'user',
     createdAt: new Date()
 });

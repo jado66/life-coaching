@@ -135,8 +135,15 @@ export const paths = {
     inputs: '/components/inputs',
   },
   home: '/home',
+  call: '/call',
+  chat: '/chat',
+  plan: '/plan',
   docs: 'https://material-kit-pro-react-docs.devias.io',
   notAuthorized: '/401',
   notFound: '/404',
   serverError: '/500',
 };
+
+export const externalPaths = {
+  calendly: 'https://calendly.com/colezesiger'
+}

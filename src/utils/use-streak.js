@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useStreak = () => {
     const [streakCount, setStreakCount] = useState(0);
+    const [loading, setLoading] = useState(true);
     const [hasCheckedInToday, setHasCheckedInToday] = useState(false);
 
     const getStreak = () => {
@@ -36,6 +37,7 @@ const useStreak = () => {
         console.log(`Current streak count: ${count}`);
 
         setStreakCount(count);
+        setLoading(false);
     };
 
     const checkUserInForDailyCheckin = () => {
@@ -58,7 +60,7 @@ const useStreak = () => {
         getStreak();
     }, []);
 
-    return { streakCount, checkUserInForDailyCheckin, hasCheckedInToday };
+    return { streakCount, checkUserInForDailyCheckin, loading, hasCheckedInToday };
 };
 
 export default useStreak;

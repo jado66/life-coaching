@@ -29,14 +29,13 @@ import { Avatar, Card, Divider } from '@mui/material';
 import Star01 from '@untitled-ui/icons-react/build/esm/Star01';
 import useStreak from 'src/utils/use-streak';
 import toast from 'react-hot-toast';
-
-const now = new Date();
+import Loading from './components/util/Loading';
 
 const Page = () => {
   const settings = useSettings();
 
-  const { streakCount, hasCheckedInToday, checkUserInForDailyCheckin } = useStreak();
-
+  const { streakCount, hasCheckedInToday, loading, checkUserInForDailyCheckin } = useStreak();
+ 
   usePageView();
 
   const handleCheckIn = () => {
@@ -145,62 +144,77 @@ const Page = () => {
               </Stack>
             </Grid>
             
-            <Grid xs={12}>
-              <Card>
-                    <Stack
-                      alignItems="center"
-                      direction="row"
-                      spacing={2}
-                      sx={{ p: 2 }}
-                    >
-                      <Stack
-                        spacing={1}
-                        sx={{ flexGrow: 1 }}
-                      >
-                      
+            { loading ?
+              <Grid xs={12}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    mt: 3,
+                  }}
+                >
+                  <Loading />
+                </Box>
+              </Grid>
+              :
+              <>
+                <Grid xs={12}>
+                  <Card>
                         <Stack
                           alignItems="center"
                           direction="row"
-                          spacing={1}
+                          spacing={2}
+                          sx={{ p: 2 }}
                         >
-                          <Typography variant="h5" sx={{ textAlign: 'center', flexGrow:1 }}>No Contact - {streakCount} Day Streak</Typography>
+                          <Stack
+                            spacing={1}
+                            sx={{ flexGrow: 1 }}
+                          >
+                          
+                            <Stack
+                              alignItems="center"
+                              direction="row"
+                              spacing={1}
+                            >
+                              <Typography variant="h5" sx={{ textAlign: 'center', flexGrow:1 }}>No Contact - {streakCount} Day Streak</Typography>
+                            </Stack>
+                          </Stack>
+                          <Avatar
+                            sx={{
+                              backgroundColor: 'primary.main',
+                              color: 'primary.contrastText',
+                              height: 48,
+                              width: 48,
+                            }}
+                          >
+                            <SvgIcon>
+                              <Star01 />
+                            </SvgIcon>
+                          </Avatar>
                         </Stack>
-                      </Stack>
-                      <Avatar
-                        sx={{
-                          backgroundColor: 'primary.main',
-                          color: 'primary.contrastText',
-                          height: 48,
-                          width: 48,
-                        }}
-                      >
-                        <SvgIcon>
-                          <Star01 />
-                        </SvgIcon>
-                      </Avatar>
-                    </Stack>
-              </Card>
-            </Grid>
-               
+                  </Card>
+                </Grid> 
 
-            <Grid xs={12} >
-             
-              <Button
-                  component="a"
-                  fullWidth
-                  variant="contained"
-                  target="_blank" // Add target="_blank" to open the link in a new tab or window
-                  sx={{
-                    fontSize: '1.5rem',
-                    padding: '1rem 2rem',
-                  }}
-                  onClick={handleCheckIn}
-                  disabled={hasCheckedInToday}
-                >
-                  {hasCheckedInToday ? 'Already Checked In' : 'Daily Check In'}
-                </Button>
+                <Grid xs={12} >
                 
-            </Grid>
+                  <Button
+                      component="a"
+                      fullWidth
+                      variant="contained"
+                      target="_blank" // Add target="_blank" to open the link in a new tab or window
+                      sx={{
+                        fontSize: '1.5rem',
+                        padding: '1rem 2rem',
+                      }}
+                      onClick={handleCheckIn}
+                      disabled={hasCheckedInToday}
+                    >
+                      {hasCheckedInToday ? 'Already Checked In' : 'Daily Check In'}
+                    </Button>
+                    
+                </Grid>
+              </>
+            }
             {/* <Grid
               xs={12}
               md={8}
