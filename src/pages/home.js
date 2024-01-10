@@ -25,13 +25,24 @@ import { OverviewOpenTickets } from 'src/sections/dashboard/overview/overview-op
 import { OverviewTips } from 'src/sections/dashboard/overview/overview-tips';
 import { OverviewChallenges } from 'src/sections/dashboard/overview/overview-challenges';
 import Link from 'next/link';
+import { Avatar, Card, Divider } from '@mui/material';
+import Star01 from '@untitled-ui/icons-react/build/esm/Star01';
+import useStreak from 'src/utils/use-streak';
+import toast from 'react-hot-toast';
 
 const now = new Date();
 
 const Page = () => {
   const settings = useSettings();
 
+  const { streakCount, hasCheckedInToday, checkUserInForDailyCheckin } = useStreak();
+
   usePageView();
+
+  const handleCheckIn = () => {
+    checkUserInForDailyCheckin();
+    toast.success('Checked in for the day!');
+  }
 
   return (
     <>
@@ -40,7 +51,7 @@ const Page = () => {
         component="main"
         sx={{
           flexGrow: 1,
-          py: 8,
+          py: 4,
         }}
       >
         <Container maxWidth={settings.stretch ? false : 'xl'}>
@@ -48,12 +59,26 @@ const Page = () => {
             container
             disableEqualOverflow
             spacing={{
-              xs: 3,
+              xs: 2,
               lg: 4,
             }}
           >
-           
-
+              <Grid xs={12}>
+                <Box
+                  sx={{
+                    backgroundColor: 'grey',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '60px',
+                    marginBottom: '20px',
+                  }}
+                >
+                  <Avatar sx={{ width: 100, height: 100 }} src="/assets/avatars/avatar-cole.png"/>
+                </Box>
+              </Grid>
+            
+     
             <Grid xs={12}>
               <Stack
                 direction="row"
@@ -67,7 +92,7 @@ const Page = () => {
                   href="https://www.calendly.com/colezesiger"
                   target="_blank" // Add target="_blank" to open the link in a new tab or window
                   sx={{
-                    fontSize: '2rem',
+                    fontSize: '1.5rem',
                     padding: '1rem 2rem',
                   }}
                 >
@@ -89,7 +114,7 @@ const Page = () => {
                    variant="contained"
                    href='/dashboard/chat'
                    sx={{
-                    fontSize: '2rem',
+                    fontSize: '1.5rem',
                     padding: '1rem 2rem',
                   }}
                 >
@@ -110,7 +135,7 @@ const Page = () => {
                    fullWidth
                    variant="contained"
                    sx={{
-                    fontSize: '2rem',
+                    fontSize: '1.5rem',
                     padding: '1rem 2rem',
                   }}
                 >
@@ -120,7 +145,62 @@ const Page = () => {
               </Stack>
             </Grid>
             
-            
+            <Grid xs={12}>
+              <Card>
+                    <Stack
+                      alignItems="center"
+                      direction="row"
+                      spacing={2}
+                      sx={{ p: 2 }}
+                    >
+                      <Stack
+                        spacing={1}
+                        sx={{ flexGrow: 1 }}
+                      >
+                      
+                        <Stack
+                          alignItems="center"
+                          direction="row"
+                          spacing={1}
+                        >
+                          <Typography variant="h5" sx={{ textAlign: 'center', flexGrow:1 }}>No Contact - {streakCount} Day Streak</Typography>
+                        </Stack>
+                      </Stack>
+                      <Avatar
+                        sx={{
+                          backgroundColor: 'primary.main',
+                          color: 'primary.contrastText',
+                          height: 48,
+                          width: 48,
+                        }}
+                      >
+                        <SvgIcon>
+                          <Star01 />
+                        </SvgIcon>
+                      </Avatar>
+                    </Stack>
+              </Card>
+            </Grid>
+               
+
+            <Grid xs={12} >
+             
+              <Button
+                  component="a"
+                  fullWidth
+                  variant="contained"
+                  target="_blank" // Add target="_blank" to open the link in a new tab or window
+                  sx={{
+                    fontSize: '1.5rem',
+                    padding: '1rem 2rem',
+                  }}
+                  onClick={handleCheckIn}
+                  disabled={hasCheckedInToday}
+                >
+                  Daily Check-In
+                </Button>
+                
+            </Grid>
             {/* <Grid
               xs={12}
               md={8}
