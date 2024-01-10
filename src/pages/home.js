@@ -197,7 +197,7 @@ const Page = () => {
                   onClick={handleCheckIn}
                   disabled={hasCheckedInToday}
                 >
-                  Daily Check-In
+                  {hasCheckedInToday ? 'Already Checked In' : 'Daily Check In'}
                 </Button>
                 
             </Grid>
