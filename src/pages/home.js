@@ -111,7 +111,7 @@ const Page = () => {
                    component={Link}
                    fullWidth
                    variant="contained"
-                   href='/dashboard/chat'
+                   href='/chat'
                    sx={{
                     fontSize: '1.5rem',
                     padding: '1rem 2rem',
