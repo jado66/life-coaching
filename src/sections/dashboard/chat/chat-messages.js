@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import { useMockedUser } from 'src/hooks/use-mocked-user';
 
 import { ChatMessage } from './chat-message';
+import ChatTypingIndicator from './chat-typing-indicator';
 
 const getAuthor = (message, participants, user) => {
   const participant = participants.find((participant) => participant.id === message.authorId);
@@ -40,6 +41,7 @@ export const ChatMessages = (props) => {
     participants = [], 
     deleteMessage,
     retrySend,
+    isTyping,
     ...other 
   } = props;
   const user = useMockedUser();
@@ -69,6 +71,12 @@ export const ChatMessages = (props) => {
           />
         );
       })}
+      
+      {isTyping && (
+        <ChatTypingIndicator
+          chatUser = {'Cole\'s Assistant'}
+        />
+      )}
     </Stack>
   );
 };
@@ -78,4 +86,5 @@ ChatMessages.propTypes = {
   participants: PropTypes.array,
   deleteMessage: PropTypes.func,
   retrySend: PropTypes.func,
+  isTyping: PropTypes.bool,
 };

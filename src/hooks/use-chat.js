@@ -119,6 +119,7 @@ function useChat() {
         } catch (error) {
             console.error('Fetch error:', error);
             updateMessageStatus(messageId, SentStatus.FAILED); // Update status to FAILED in case of error
+            setIsTyping(false);
             return;
         }
         

@@ -245,6 +245,7 @@ export const ChatThread = (props) => {
             participants={thread?.participants || []}
             deleteMessage={deleteMessage}
             retrySend={retrySend}
+            isTyping={isTyping}
           />
         </Scrollbar>
       </Box>
