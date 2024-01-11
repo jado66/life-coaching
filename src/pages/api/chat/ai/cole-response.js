@@ -3,6 +3,8 @@ import { generateResponse } from '../generate-response/generate-response';
 import apiRequestOriginValidation from 'src/utils/api-request-origin-validation';
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // Replace with your own API key
+const baseUrl = process.env.BASE_URL || 'http://localhost:3000'; 
+const environment = process.env.NODE_ENV || 'dev';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -20,6 +22,16 @@ export default async function handler(req, res) {
   const {body} = req;
 
   const { threadId, message } = body;
+
+  // Simulate a failure response some of the time in dev mode
+  if (environment === 'dev') {
+    const simulateResponseEndpoint = `${baseUrl}/api/simulate/failSomeOfTheTime`;
+
+    const simulateResponse = await fetch(simulateResponseEndpoint);
+    if (simulateResponse.status !== 200) {
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
 
   try {
     const responseObject = await generateResponse(

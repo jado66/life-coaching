@@ -139,15 +139,11 @@ const useMessagesScroll = (thread) => {
 export const ChatThread = (props) => {
   const {
     isTyping,
-    messageInputValue,
     messages,
-    isStoredMessages,
-    sendInitialMessage,
-    grabStoredMessages,
     handleSend,
-    dontLoadStoredMessages,
     clearMessages,
-    setMessageInputValue,
+    deleteMessage,
+    retrySend,
   } = useChat()
 
 
@@ -247,6 +243,8 @@ export const ChatThread = (props) => {
           <ChatMessages
             messages={messages || []}
             participants={thread?.participants || []}
+            deleteMessage={deleteMessage}
+            retrySend={retrySend}
           />
         </Scrollbar>
       </Box>

@@ -7,9 +7,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 export const ChatMessage = (props) => {
-  const { authorAvatar, authorName, body, contentType, createdAt, position, ...other } = props;
+  const { 
+    authorAvatar, 
+    authorName, 
+    body, 
+    contentType, 
+    createdAt, 
+    position, 
+    sentStatus, 
+    deleteMessage,
+    retrySend,
+    id,
+    ...other 
+  } = props;
 
   const ago = formatDistanceToNowStrict(createdAt);
 
@@ -83,13 +96,72 @@ export const ChatMessage = (props) => {
               px: 2,
             }}
           >
-            <Typography
-              color="text.secondary"
-              noWrap
-              variant="caption"
-            >
-              {ago} ago
-            </Typography>
+            {
+              sentStatus === 'failed' && (
+                <>
+                <Stack  
+                  direction="column"
+                  spacing={0}
+                >
+                  <Typography
+                    color="error.main"
+                    noWrap
+                    variant="caption"
+                  >
+                    This message failed.
+                  </Typography>
+                  
+                  <Stack direction="row" spacing={1}>
+                    <Button 
+                      variant="text" color="primary" size="small"
+                      onClick={() => retrySend(id)}
+                    >
+                      <Typography
+                        color="primary"
+                        noWrap
+                        variant="caption"
+                      > 
+                        Send again
+                      </Typography>
+                    </Button>
+                    <Button 
+                      variant="text" color="secondary" size="small"
+                      onClick={() => deleteMessage(id)}
+                    >
+                      <Typography
+                        color="Secondary"
+                        noWrap
+                        variant="caption"
+                      > 
+                        Delete
+                      </Typography>
+                    </Button>
+                  </Stack>
+                </Stack>
+                </>
+              )
+            }
+            {
+              sentStatus === 'pending' && (
+                <Typography
+                  color="text.secondary"
+                  noWrap
+                  variant="caption"
+                >
+                  Sending...
+                </Typography>
+              )
+            }
+            {
+              sentStatus === 'sent' &&
+              <Typography
+                color="text.secondary"
+                noWrap
+                variant="caption"
+              >
+                Sent {ago} ago
+              </Typography>
+            }
           </Box>
         </Box>
       </Stack>
@@ -104,4 +176,7 @@ ChatMessage.propTypes = {
   contentType: PropTypes.string.isRequired,
   createdAt: PropTypes.number.isRequired,
   position: PropTypes.oneOf(['left', 'right']),
+  sentStatus: PropTypes.oneOf(['sent', 'pending', 'failed']),
+  deleteMessage: PropTypes.func,
+  retrySend: PropTypes.func,
 };

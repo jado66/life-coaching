@@ -9,12 +9,24 @@ const userID = '5e86809283e28b96d2d38537'
 const coachID = '5e86805e2bafd54f66cc95c3'
 // Custom Hook for Chat Functionality
 
+const SentStatus = {
+    SENT: 'sent', 
+    PENDING: 'pending', 
+    FAILED: 'failed'
+};
+
 function useChat() {
     const [isTyping, setIsTyping] = useState(false);
     const [threadId, setThreadId] = useState(null);
     const [messages, setMessages] = useState([]);
     const [isStoredMessages, setIsStoredMessages] = useState(false);
 
+
+    const updateMessageStatus = (messageId, status) => {
+        setMessages((prevMessages) => prevMessages.map(msg =>
+            msg.id === messageId ? { ...msg, sentStatus: status } : msg
+        ));
+    };
 
     // Send the initial message to start the conversation with the chatbot
     const sendInitialMessage = () => {
@@ -25,14 +37,14 @@ function useChat() {
         setIsTyping(false);
         setMessages((prevstate) => [
             ...prevstate,
-            
             {
                 id: uuidv4(),
                 attachments: [],
                 body: intro,
                 contentType: "text",
                 createdAt: incomingMessageTime.getTime(),
-                authorId: coachID
+                authorId: coachID,
+                sentStatus: SentStatus.SENT
             },
         ]);
         }, 1000);
@@ -41,39 +53,30 @@ function useChat() {
     // Handle sending a message and receiving a response
     const handleSend = async (message) => {
         const outgoingMessageTime = new Date();
+        const messageId = uuidv4(); 
 
         setIsTyping(true);
-        setMessages((prevstate) => [
-            ...prevstate,
-            {
-                id: uuidv4(),
-                attachments: [],
-                body: message,
-                contentType: "text",
-                createdAt: outgoingMessageTime.getTime(),
-                authorId: userID
-            },
-        ]);
 
-        await fetch('/api/chat/ai/test', {
-            method: 'GET'
-        });
+        const tempMessage = {
+            id: messageId,
+            attachments: [],
+            body: message,
+            contentType: "text",
+            createdAt: outgoingMessageTime.getTime(),
+            authorId: userID,
+            sentStatus: SentStatus.PENDING
+        };
 
-        let responseObject;
-        try {
-            responseObject = await fetch('/api/chat/ai/cole-response', {
-                method: 'POST',
-                body: JSON.stringify({ threadId, message }),
-                headers: {
-                'Content-Type': 'application/json',
-                },
-            });
-        } catch (error) {
-            console.error('Fetch error:', error);
+        setMessages(prevstate => [...prevstate, tempMessage]);
+
+        const responseObject = await sendMessageToServer(messageId, message); // Send message to server
+
+        if (responseObject) {
+            processIncomingMessage(responseObject);
         }
-        
-        responseObject = await responseObject.json();
+    };
 
+    const processIncomingMessage = (responseObject) => {
         if (!threadId) {
             setThreadId(responseObject.threadId);
             localStorage.setItem(botName + '_threadId', responseObject.threadId);
@@ -82,7 +85,7 @@ function useChat() {
         const incomingMessageTime = new Date();
 
         setIsTyping(false);
-        setMessages((prevstate) => [
+        setMessages(prevstate => [
             ...prevstate,
             {
                 id: uuidv4(),
@@ -90,9 +93,54 @@ function useChat() {
                 body: responseObject.message,
                 contentType: "text",
                 createdAt: incomingMessageTime.getTime(),
-                authorId: coachID
+                authorId: coachID,
+                sentStatus: SentStatus.SENT
             },
         ]);
+    };
+
+    const sendMessageToServer = async (messageId, messageContent) => {
+        let responseObject;
+
+        try {
+            responseObject = await fetch('/api/chat/ai/cole-response', {
+                method: 'POST',
+                body: JSON.stringify({ threadId, message: messageContent }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!responseObject.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            updateMessageStatus(messageId, SentStatus.SENT); // Update status to SENT on successful response
+        } catch (error) {
+            console.error('Fetch error:', error);
+            updateMessageStatus(messageId, SentStatus.FAILED); // Update status to FAILED in case of error
+            return;
+        }
+        
+        responseObject = await responseObject.json();
+        return responseObject;
+    };
+
+    const retrySend = async (messageId) => {
+        const failedMessage = messages.find(m => m.id === messageId);
+        
+        if (!failedMessage || failedMessage.sentStatus !== SentStatus.FAILED) {
+            console.error('Unable to retry: Message not found or not in FAILED status');
+            return;
+        }
+        
+        updateMessageStatus(messageId, SentStatus.PENDING); // Update status to PENDING before retrying
+        
+        const responseObject = await sendMessageToServer(messageId, failedMessage.body); // Retrying the send operation
+
+        if (responseObject) {
+            processIncomingMessage(responseObject);
+        }
     };
 
     // Load stored messages from localStorage
@@ -105,6 +153,10 @@ function useChat() {
         } else {
             sendInitialMessage();
         }
+    };
+
+    const deleteMessage = (messageId) => {
+        setMessages(prevMessages => prevMessages.filter(msg => msg.id !== messageId));
     };
 
     // Clear messages both from local state and localStorage
@@ -131,11 +183,10 @@ function useChat() {
     return {
         isTyping,
         messages,
-        isStoredMessages,
-        sendInitialMessage,
-        grabStoredMessages,
         handleSend,
         clearMessages,
+        deleteMessage,
+        retrySend,
     };
 }
 

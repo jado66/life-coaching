@@ -35,7 +35,13 @@ const getAuthor = (message, participants, user) => {
 };
 
 export const ChatMessages = (props) => {
-  const { messages = [], participants = [], ...other } = props;
+  const { 
+    messages = [], 
+    participants = [], 
+    deleteMessage,
+    retrySend,
+    ...other 
+  } = props;
   const user = useMockedUser();
 
   return (
@@ -56,6 +62,10 @@ export const ChatMessages = (props) => {
             createdAt={message.createdAt}
             key={message.id}
             position={author.isUser ? 'right' : 'left'}
+            sentStatus={message.sentStatus}
+            deleteMessage={deleteMessage}
+            retrySend={retrySend}
+            id={message.id}
           />
         );
       })}
@@ -66,4 +76,6 @@ export const ChatMessages = (props) => {
 ChatMessages.propTypes = {
   messages: PropTypes.array,
   participants: PropTypes.array,
+  deleteMessage: PropTypes.func,
+  retrySend: PropTypes.func,
 };
