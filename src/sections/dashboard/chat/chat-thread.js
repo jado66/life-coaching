@@ -15,6 +15,7 @@ import { thunks } from 'src/thunks/chat';
 import { ChatMessageAdd } from './chat-message-add';
 import { ChatMessages } from './chat-messages';
 import { ChatThreadToolbar } from './chat-thread-toolbar';
+import useChat from 'src/hooks/use-chat';
 
 const useParticipants = (threadKey) => {
   const router = useRouter();
@@ -136,6 +137,20 @@ const useMessagesScroll = (thread) => {
 };
 
 export const ChatThread = (props) => {
+  const {
+    isTyping,
+    messageInputValue,
+    messages,
+    isStoredMessages,
+    sendInitialMessage,
+    grabStoredMessages,
+    handleSend,
+    dontLoadStoredMessages,
+    clearMessages,
+    setMessageInputValue,
+  } = useChat()
+
+
   const { threadKey, ...other } = props;
   const dispatch = useDispatch();
   const user = useMockedUser();
@@ -143,69 +158,69 @@ export const ChatThread = (props) => {
   const participants = useParticipants(threadKey);
   const { messagesRef } = useMessagesScroll(thread);
 
-  const handleSend = useCallback(
-    async (body) => {
-      // If we have the thread, we use its ID to add a new message
+  // const handleSend = useCallback(
+  //   async (body) => {
+  //     // If we have the thread, we use its ID to add a new message
 
-      if (thread) {
-        try {
-          await dispatch(
-            thunks.addMessage({
-              threadId: thread.id,
-              body,
-            })
-          );
-        } catch (err) {
-          console.error(err);
-        }
+  //     if (thread) {
+  //       try {
+  //         await dispatch(
+  //           thunks.addMessage({
+  //             threadId: thread.id,
+  //             body,
+  //           })
+  //         );
+  //       } catch (err) {
+  //         console.error(err);
+  //       }
 
-        return;
-      }
+  //       return;
+  //     }
 
-      // Otherwise we use the recipients IDs. When using participant IDs, it means that we have to
-      // get the thread.
+  //     // Otherwise we use the recipients IDs. When using participant IDs, it means that we have to
+  //     // get the thread.
 
-      // Filter the current user to get only the other participants
+  //     // Filter the current user to get only the other participants
 
-      const recipientIds = participants
-        .filter((participant) => participant.id !== user.id)
-        .map((participant) => participant.id);
+  //     const recipientIds = participants
+  //       .filter((participant) => participant.id !== user.id)
+  //       .map((participant) => participant.id);
 
-      // Add the new message
+  //     // Add the new message
 
-      let threadId;
+  //     let threadId;
 
-      try {
-        threadId = await dispatch(
-          thunks.addMessage({
-            recipientIds,
-            body,
-          })
-        );
-      } catch (err) {
-        console.error(err);
-        return;
-      }
+  //     try {
+  //       threadId = await dispatch(
+  //         thunks.addMessage({
+  //           recipientIds,
+  //           body,
+  //         })
+  //       );
+  //     } catch (err) {
+  //       console.error(err);
+  //       return;
+  //     }
 
-      // Load the thread because we did not have it
+  //     // Load the thread because we did not have it
 
-      try {
-        await dispatch(
-          thunks.getThread({
-            threadKey: threadId,
-          })
-        );
-      } catch (err) {
-        console.error(err);
-        return;
-      }
+  //     try {
+  //       await dispatch(
+  //         thunks.getThread({
+  //           threadKey: threadId,
+  //         })
+  //       );
+  //     } catch (err) {
+  //       console.error(err);
+  //       return;
+  //     }
 
-      // Set the new thread as active
+  //     // Set the new thread as active
 
-      dispatch(thunks.setCurrentThread({ threadId }));
-    },
-    [dispatch, participants, thread, user]
-  );
+  //     dispatch(thunks.setCurrentThread({ threadId }));
+  //   },
+  //   [dispatch, participants, thread, user]
+  // );
 
   // Maybe implement a loading state
 
@@ -217,7 +232,7 @@ export const ChatThread = (props) => {
       }}
       {...other}
     >
-      <ChatThreadToolbar participants={participants} />
+      <ChatThreadToolbar participants={participants} clearMessages = {clearMessages} />
       <Divider />
       <Box
         sx={{
@@ -230,7 +245,7 @@ export const ChatThread = (props) => {
           sx={{ maxHeight: '100%' }}
         >
           <ChatMessages
-            messages={thread?.messages || []}
+            messages={messages || []}
             participants={thread?.participants || []}
           />
         </Scrollbar>

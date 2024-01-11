@@ -32,7 +32,7 @@ export const ChatMessageAdd = (props) => {
       return;
     }
 
-    onSend?.(body);
+    onSend(body);
     setBody('');
   }, [body, onSend]);
 

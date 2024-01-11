@@ -41,7 +41,7 @@ const getLastActive = (recipients) => {
 };
 
 export const ChatThreadToolbar = (props) => {
-  const { participants = [], ...other } = props;
+  const { participants = [], clearMessages, ...other } = props;
   const user = useMockedUser();
   const popover = usePopover();
 
@@ -137,38 +137,17 @@ export const ChatThreadToolbar = (props) => {
         onClose={popover.handleClose}
         open={popover.open}
       >
-        <MenuItem>
-          <ListItemIcon>
-            <SvgIcon>
-              <SlashCircle01Icon />
-            </SvgIcon>
-          </ListItemIcon>
-          <ListItemText primary="Block" />
-        </MenuItem>
-        <MenuItem>
+        
+        <MenuItem onClick={clearMessages}>
           <ListItemIcon>
             <SvgIcon>
               <Trash02Icon />
             </SvgIcon>
           </ListItemIcon>
-          <ListItemText primary="Delete" />
+          <ListItemText primary="Delete Conversation" />
         </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <SvgIcon>
-              <ArchiveIcon />
-            </SvgIcon>
-          </ListItemIcon>
-          <ListItemText primary="Archive" />
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <SvgIcon>
-              <Bell01Icon />
-            </SvgIcon>
-          </ListItemIcon>
-          <ListItemText primary="Mute" />
-        </MenuItem>
+        
+       
       </Menu>
     </>
   );
