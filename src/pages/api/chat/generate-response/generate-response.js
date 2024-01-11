@@ -26,7 +26,13 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
 
     console.log('Run: ', run.id);
 
-    await pollStatus(openai, threadId, run.id, 500);
+    // Wait until the run is finished before moving on.
+    const status = await pollStatus(openai, threadId, run.id, 500);
+
+    // Check for a successful completion of the run.
+    if (status !== 'completed') {
+      throw new Error(`The run did not complete successfully. Run status: ${status}`);
+    }
 
     // Get the last assistant message from the messages array
     const messages = await openai.beta.threads.messages.list(threadId);
@@ -37,7 +43,6 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
     const lastMessageForRun = messages.data
       .filter((message) => message.run_id === run.id && message.role === 'assistant')
       .pop();
-    // If an assistant message is found, console.log() it
 
     if (lastMessageForRun) {
       const lastMessage = lastMessageForRun.content[0].text.value;
@@ -51,6 +56,6 @@ export const generateResponse = async (openai, assistantId, threadId, userMessag
     return 'No message found';
   } catch (error) {
     console.error(error); // this will print any error that occurs
-    return error;
+    return error.message; // Return a more appropriate value, such as the error message.
   }
 };
