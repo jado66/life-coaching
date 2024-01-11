@@ -68,7 +68,7 @@ export const paths = {
       postCreate: '/dashboard/blog/create',
     },
     calendar: '/dashboard/calendar',
-    chat: '/dashboard/chat',
+    chat: '/chat',
     challenges: {
       index: '/dashboard/challenges',
       completed: '/dashboard/challenges/completed',
