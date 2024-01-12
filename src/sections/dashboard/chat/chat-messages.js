@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Stack from '@mui/material/Stack';
 
-import { useMockedUser } from 'src/hooks/use-mocked-user';
+import { useUser } from 'src/hooks/use-user';
 
 import { ChatMessage } from './chat-message';
 import ChatTypingIndicator from './chat-typing-indicator';
@@ -20,10 +20,10 @@ const getAuthor = (message, participants, user) => {
 
   // Since chat mock db is not synced with external auth providers
   // we set the user details from user auth state instead of thread participants
-  if (message.authorId === user.id) {
+  if (message.authorId === user?.id) {
     return {
       name: 'Me',
-      avatar: user.avatar,
+      avatar: user?.avatar,
       isUser: true,
     };
   }
@@ -44,7 +44,7 @@ export const ChatMessages = (props) => {
     isTyping,
     ...other 
   } = props;
-  const user = useMockedUser();
+  const {user} = useUser();
 
   return (
     <Stack

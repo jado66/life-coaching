@@ -29,7 +29,7 @@ import { Avatar, Card, Divider } from '@mui/material';
 import Star01 from '@untitled-ui/icons-react/build/esm/Star01';
 import useStreak from 'src/hooks/use-streak';
 import toast from 'react-hot-toast';
-import Loading from './components/util/Loading';
+import { Loading, PageLoading } from './components/util/loading';
 import { useUser } from 'src/hooks/use-user';
 
 const Page = () => {
@@ -48,13 +48,15 @@ const Page = () => {
     toast.success('Checked in for the day!');
   }
 
+  const seoTitle = `Dashboard: Overview`;
+ 
   if (!user){
-    return <h1>No User</h1>
+    return <PageLoading settings = {settings} seoTitle = {seoTitle}/>
   }
 
   return (
     <>
-      <Seo title="Dashboard: Overview" />
+      <Seo title={seoTitle} />
       <Box
         component="main"
         sx={{

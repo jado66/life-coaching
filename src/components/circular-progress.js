@@ -29,13 +29,15 @@ const CircularProgressValue = styled('path')(({ theme }) => ({
 
 
 
-export const CircularProgressSpinner = () => {
+export const CircularProgressSpinner = ({ size = 40 }) => {
   const theme = useTheme();
 
   return (
     <MuiCircularProgress 
       style={{
         color: theme.palette.primary.main,
+        width: size,
+        height: size,
       }}
     />
   );

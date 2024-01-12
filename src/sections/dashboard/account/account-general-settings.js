@@ -14,9 +14,56 @@ import SvgIcon from '@mui/material/SvgIcon';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import { useEffect, useState } from 'react';
 
 export const AccountGeneralSettings = (props) => {
-  const { avatar, email, name } = props;
+  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount } = props;
+
+  const [firstName, setFirstName] = useState(user?.firstName);
+  const [lastName, setLastName] = useState(user?.lastName);
+  const [email, setEmail] = useState(user?.email);
+
+  const handleSaveFirstName = () => {
+    
+
+    updateUserByKey('firstName', firstName);
+  }
+
+  const handleSaveLastName = () => {
+    updateUserByKey('lastName', lastName);
+  }
+
+  const handleSaveEmail = async() => {
+    // validate email using regex
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) === false) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const successResponse = await tryChangeUserEmail(email);
+
+    if (!successResponse) {
+      setEmail(user.email);
+    }
+  }
+
+  const handleDeleteAccount = () => {
+    // confirm deletion
+    const confirmDelete = window.confirm('Are you sure you want to delete your account? This is irreversible.');
+
+    if (confirmDelete) {
+      // delete account
+      deleteUser();
+    }
+  }
+
+
+  useEffect(() => {
+    setFirstName(user?.firstName);
+    setLastName(user?.lastName);
+    setEmail(user?.email);
+  }
+  , [user]);
 
   return (
     <Stack
@@ -34,6 +81,7 @@ export const AccountGeneralSettings = (props) => {
               md={4}
             >
               <Typography variant="h6">Basic details</Typography>
+              {/* {JSON.stringify(user)} */}
             </Grid>
             <Grid
               xs={12}
@@ -101,7 +149,7 @@ export const AccountGeneralSettings = (props) => {
                         </Stack>
                       </Box>
                       <Avatar
-                        src={avatar}
+                        src={user?.avatar}
                         sx={{
                           height: 100,
                           width: 100,
@@ -116,8 +164,9 @@ export const AccountGeneralSettings = (props) => {
                   <Button
                     color="inherit"
                     size="small"
+                    disabled
                   >
-                    Change
+                    Change Picture {'(Coming soon)'}
                   </Button>
                 </Stack>
                 <Stack
@@ -126,13 +175,17 @@ export const AccountGeneralSettings = (props) => {
                   spacing={2}
                 >
                   <TextField
-                    defaultValue={name}
-                    label="Full Name"
+                    value={firstName}
+                    label="First Name"
                     sx={{ flexGrow: 1 }}
+                    InputLabelProps={{ shrink: firstName }}
+                    onChange={(event) => setFirstName(event.target.value)}
                   />
                   <Button
                     color="inherit"
                     size="small"
+                    onClick={handleSaveFirstName}
+                    disabled={firstName === user?.firstName}
                   >
                     Save
                   </Button>
@@ -143,8 +196,30 @@ export const AccountGeneralSettings = (props) => {
                   spacing={2}
                 >
                   <TextField
-                    defaultValue={email}
-                    disabled
+                    value={lastName}
+                    label="Last Name"
+                    InputLabelProps={{ shrink: lastName }}
+                    sx={{ flexGrow: 1 }}
+                    onChange={(event) => setLastName(event.target.value)}
+                  />
+                  <Button
+                    color="inherit"
+                    size="small"
+                    onClick={handleSaveLastName}
+                    disabled={lastName === user?.lastName}
+                  >
+                    Save
+                  </Button>
+                </Stack>
+                <Stack
+                  alignItems="center"
+                  direction="row"
+                  spacing={2}
+                >
+                  <TextField
+                    value={email}
+                    onChange = {(event) => setEmail(event.target.value)}
+                    InputLabelProps={{ shrink: email }}
                     label="Email Address"
                     required
                     sx={{
@@ -157,8 +232,10 @@ export const AccountGeneralSettings = (props) => {
                   <Button
                     color="inherit"
                     size="small"
+                    onClick={handleSaveEmail}
+                    disabled={email}
                   >
-                    Edit
+                    Edit {'(Coming soon)'}
                   </Button>
                 </Stack>
               </Stack>
@@ -166,68 +243,7 @@ export const AccountGeneralSettings = (props) => {
           </Grid>
         </CardContent>
       </Card>
-      <Card>
-        <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              xs={12}
-              md={4}
-            >
-              <Typography variant="h6">Public profile</Typography>
-            </Grid>
-            <Grid
-              xs={12}
-              sm={12}
-              md={8}
-            >
-              <Stack
-                divider={<Divider />}
-                spacing={3}
-              >
-                <Stack
-                  alignItems="flex-start"
-                  direction="row"
-                  justifyContent="space-between"
-                  spacing={3}
-                >
-                  <Stack spacing={1}>
-                    <Typography variant="subtitle1">Make Contact Info Public</Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                    >
-                      Means that anyone viewing your profile will be able to see your contacts
-                      details.
-                    </Typography>
-                  </Stack>
-                  <Switch />
-                </Stack>
-                <Stack
-                  alignItems="flex-start"
-                  direction="row"
-                  justifyContent="space-between"
-                  spacing={3}
-                >
-                  <Stack spacing={1}>
-                    <Typography variant="subtitle1">Available to hire</Typography>
-                    <Typography
-                      color="text.secondary"
-                      variant="body2"
-                    >
-                      Toggling this will let your teammates know that you are available for
-                      acquiring new projects.
-                    </Typography>
-                  </Stack>
-                  <Switch defaultChecked />
-                </Stack>
-              </Stack>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+     
       <Card>
         <CardContent>
           <Grid
@@ -254,8 +270,10 @@ export const AccountGeneralSettings = (props) => {
                 <Button
                   color="error"
                   variant="outlined"
+                  onClick={handleDeleteAccount}
+                  disabled
                 >
-                  Delete account
+                  Delete account  {'(Coming Soon)'}
                 </Button>
               </Stack>
             </Grid>
@@ -267,7 +285,5 @@ export const AccountGeneralSettings = (props) => {
 };
 
 AccountGeneralSettings.propTypes = {
-  avatar: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired
 };

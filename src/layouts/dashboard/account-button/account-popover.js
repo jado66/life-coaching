@@ -16,7 +16,6 @@ import Typography from '@mui/material/Typography';
 
 import { RouterLink } from 'src/components/router-link';
 import { useAuth } from 'src/hooks/use-auth';
-import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { useRouter } from 'src/hooks/use-router';
 import { paths } from 'src/paths';
 import { Issuer } from 'src/utils/auth';
@@ -26,7 +25,6 @@ export const AccountPopover = (props) => {
   const { anchorEl, onClose, open, ...other } = props;
   const router = useRouter();
   const auth = useAuth();
-  const mockUser = useMockedUser();
   const {user} = useUser();
 
   const handleLogout = useCallback(async () => {
@@ -67,7 +65,7 @@ export const AccountPopover = (props) => {
       <Box sx={{ p: 1 }}>
         <ListItemButton
           component={RouterLink}
-          href={paths.dashboard.social.profile}
+          href={paths.dashboard.account}
           onClick={onClose}
           sx={{
             borderRadius: 1,
@@ -80,7 +78,7 @@ export const AccountPopover = (props) => {
               <User03Icon />
             </SvgIcon>
           </ListItemIcon>
-          <ListItemText primary={<Typography variant="body1">Profile</Typography>} />
+          <ListItemText primary={<Typography variant="body1">Account</Typography>} />
         </ListItemButton>
         <ListItemButton
           component={RouterLink}
@@ -99,23 +97,7 @@ export const AccountPopover = (props) => {
           </ListItemIcon>
           <ListItemText primary={<Typography variant="body1">Settings</Typography>} />
         </ListItemButton>
-        <ListItemButton
-          component={RouterLink}
-          href={paths.dashboard.index}
-          onClick={onClose}
-          sx={{
-            borderRadius: 1,
-            px: 1,
-            py: 0.5,
-          }}
-        >
-          <ListItemIcon>
-            <SvgIcon fontSize="small">
-              <CreditCard01Icon />
-            </SvgIcon>
-          </ListItemIcon>
-          <ListItemText primary={<Typography variant="body1">Billing</Typography>} />
-        </ListItemButton>
+        
       </Box>
       <Divider sx={{ my: '0 !important' }} />
       <Box

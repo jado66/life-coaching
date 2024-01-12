@@ -11,11 +11,11 @@ import Stack from '@mui/material/Stack';
 import SvgIcon from '@mui/material/SvgIcon';
 import Tooltip from '@mui/material/Tooltip';
 
-import { useMockedUser } from 'src/hooks/use-mocked-user';
+import { useUser } from 'src/hooks/use-user';
 
 export const ChatMessageAdd = (props) => {
   const { disabled = false, onSend, ...other } = props;
-  const user = useMockedUser();
+  const {user} = useUser();
   const fileInputRef = useRef(null);
   const [body, setBody] = useState('');
 
@@ -63,7 +63,7 @@ export const ChatMessageAdd = (props) => {
             sm: 'inline',
           },
         }}
-        src={user.avatar}
+        src={user?.avatar}
       />
       <OutlinedInput
         disabled={disabled}

@@ -77,6 +77,31 @@ const useUserApis = () => {
         }
     };
 
+    const changeUserEmail = async (oldEmail, newEmail) => {
+        // check and see if new email is already taken
+        const user = await fetchUser(newEmail);
+
+        if (user) {
+            throw new Error('Email is already taken');
+        }
+
+        // clone old user
+        const oldUser = await fetchUser(oldEmail);
+        const newUser = {...oldUser};
+
+        // delete old user
+        await deleteUser(oldEmail);
+
+        // update email
+        newUser.email = newEmail;
+        newUser._id = newEmail;
+
+        console.log("New User: " + JSON.stringify(newUser));
+
+        // create new user
+        await createUser(newUser);
+    }      
+
     useEffect(() => {
         // Additional logic or side effects can be added here
         // This will run when the component using this hook mounts
@@ -88,6 +113,7 @@ const useUserApis = () => {
 
     return {
         createUser,
+        changeUserEmail,
         fetchUser,
         updateUser,
         deleteUser,

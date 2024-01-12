@@ -9,7 +9,6 @@ import Tabs from '@mui/material/Tabs';
 import Typography from '@mui/material/Typography';
 
 import { Seo } from 'src/components/seo';
-import { useMockedUser } from 'src/hooks/use-mocked-user';
 import { usePageView } from 'src/hooks/use-page-view';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard';
 import { AccountBillingSettings } from 'src/sections/dashboard/account/account-billing-settings';
@@ -23,17 +22,15 @@ import { AccountAppSettings } from 'src/sections/dashboard/account/account-app-s
 const now = new Date();
 
 const tabs = [
-  { label: 'General', value: 'general' },
-  { label: 'Billing', value: 'billing' },
-  { label: 'Team', value: 'team' },
-  { label: 'Notifications', value: 'notifications' },
-  { label: 'App Display', value: 'app' },
-  { label: 'Security', value: 'security' },
+  { label: 'General', value: 'general', enabled: true },
+  { label: 'Billing', value: 'billing', enabled: false },
+  { label: 'Notifications', value: 'notifications', enabled: false },
+  { label: 'App Display', value: 'app', enabled: false },
+  { label: 'Security', value: 'security', enabled: false },
 ];
 
 const Page = () => {
-  const mockUser = useMockedUser();
-  const { user } = useUser();
+  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount } = useUser();
   const [currentTab, setCurrentTab] = useState('general');
 
   usePageView();
@@ -72,6 +69,7 @@ const Page = () => {
                     key={tab.value}
                     label={tab.label}
                     value={tab.value}
+                    disabled={!tab.enabled}
                   />
                 ))}
               </Tabs>
@@ -79,10 +77,11 @@ const Page = () => {
             </div>
           </Stack>
           {currentTab === 'general' && (
-            <AccountGeneralSettings
-              avatar={mockUser.avatar || ''}
-              email={user.email || ''}
-              name={user.name || ''}
+            <AccountGeneralSettings 
+              user = {user} 
+              updateUserByKey = {updateUserByKey}
+              tryChangeUserEmail = {tryChangeUserEmail}
+              deleteAccount = {deleteAccount}
             />
           )}
           {currentTab === 'billing' && (

@@ -16,7 +16,8 @@ export const UserProvider = (props) => {
     createUser,
     fetchUser,
     updateUser,
-    deleteUser: deleteUserFromMongoDB
+    deleteAccount: deleteUser,
+    changeUserEmail
   } = useUserApis();
 
   const updateUserByKey = (key, value) => {
@@ -33,6 +34,7 @@ export const UserProvider = (props) => {
 
   const createUserIfNotFound = async () => {
     try {
+
       const newUserObject = createNewUserObject(authUser);
       const createdUser = await createUser(newUserObject);
       console.log("Created User: " + JSON.stringify(createdUser));
@@ -44,13 +46,14 @@ export const UserProvider = (props) => {
     }
   };
 
-  const deleteUser = async () => {
-    deleteUserFromMongoDB(user.email)
+  const deleteAccount = async () => {
+    deleteUser(user.email)
     setState(null);
   }
 
   const loadUser = async () => {
-    
+    console.log("Loading User: " + JSON.stringify(authUser));
+
     const loadedUser = await fetchUser(authUser.email);
     console.log("Loaded User: "+ JSON.stringify(loadedUser))
     
@@ -60,6 +63,28 @@ export const UserProvider = (props) => {
     }
     else{
       createUserIfNotFound()
+    }
+  }
+
+  const tryChangeUserEmail = async (newEmail) => {
+    try{
+      await changeUserEmail(user.email, newEmail)
+      setState((prevState) => {
+        return {
+          ...prevState,
+          email: newEmail,
+          _id: newEmail
+        };
+      });
+
+      // This needs to be done in the Auth Provider too
+
+      return true;
+    }
+    catch(error){
+      console.error("Error changing user email:", error);
+      alert("Error changing user email: " + error)
+      return false;
     }
   }
 
@@ -80,7 +105,8 @@ export const UserProvider = (props) => {
         streakDates: user?.streakDates,
         isLoaded,
         updateUserByKey,
-        deleteUser
+        deleteAccount,
+        tryChangeUserEmail
       }}
     >
       {children}
