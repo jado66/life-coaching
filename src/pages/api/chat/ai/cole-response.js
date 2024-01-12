@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { generateResponse } from '../generate-response/generate-response';
-import setCorsHeaders from 'src/utils/middlware/cors';
+import { setCorsHeaders } from 'src/utils/middlware/cors';
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // Replace with your own API key
 const baseUrl = process.env.BASE_URL || 'http://localhost:3000'; 

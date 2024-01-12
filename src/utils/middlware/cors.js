@@ -13,5 +13,5 @@ function setCorsHeaders(req, res, next) {
     next();
   }
   
-  export default setCorsHeaders;
+  export {setCorsHeaders};
   

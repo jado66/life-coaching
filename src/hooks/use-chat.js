@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { subDays, subHours, subMinutes } from 'date-fns';
+import { useUser } from './use-user';
 
 const botName = 'cole'
 const intro = 'Hi, I\'m Cole\'s assistant. How can I help you?'
@@ -19,8 +20,8 @@ function useChat() {
     const [isTyping, setIsTyping] = useState(false);
     const [threadId, setThreadId] = useState(null);
     const [messages, setMessages] = useState([]);
-    const [isStoredMessages, setIsStoredMessages] = useState(false);
 
+    const { user } = useUser();
 
     const updateMessageStatus = (messageId, status) => {
         setMessages((prevMessages) => prevMessages.map(msg =>
@@ -63,7 +64,8 @@ function useChat() {
             body: message,
             contentType: "text",
             createdAt: outgoingMessageTime.getTime(),
-            authorId: userID,
+            avatar: user?.avatar,
+            authorId: user?.email,
             sentStatus: SentStatus.PENDING
         };
 

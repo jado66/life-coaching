@@ -10,13 +10,13 @@ const getAuthor = (message, participants, user) => {
   const participant = participants.find((participant) => participant.id === message.authorId);
 
   // This should never happen
-  if (!participant) {
-    return {
-      name: 'Unknown',
-      avatar: '',
-      isUser: false,
-    };
-  }
+  // if (!participant) {
+  //   return {
+  //     name: 'Unknown',
+  //     avatar: '',
+  //     isUser: false,
+  //   };
+  // }
 
   // Since chat mock db is not synced with external auth providers
   // we set the user details from user auth state instead of thread participants
