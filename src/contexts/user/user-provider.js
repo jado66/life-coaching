@@ -2,47 +2,85 @@ import { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { UserContext } from './user-context';
 import { useAuth } from 'src/hooks/use-auth';
-import { createNewUser } from './create-new-user';
+import { createNewUserObject } from './create-new-user-object';
+import useUserApis from 'src/hooks/use-user-apis';
 
 export const UserProvider = (props) => {
   const { children } = props;
-  const [state, setState] = useState(null);
+  const [user, setState] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const { user } = useAuth();
+  const { user: authUser } = useAuth();
 
-  // Grab user from MongoDB
-  useEffect(() => {
-    if (user) {
+  const { 
+    createUser,
+    fetchUser,
+    updateUser,
+    deleteUser: deleteUserFromMongoDB
+  } = useUserApis();
 
-      // get from MongoDB
-      const isUserFound = false;
-
-      if (!isUserFound) {
-        // create user in MongoDB
-        const newUser = createNewUser(user)
-        console.log("New User: "+ JSON.stringify(newUser))
-        setState({user: newUser});
-      }
-      else{
-        // set user from MongoDB
-      }
-    }
-  }, [user]);
-
-  const handleUpdate = useCallback((user) => {
+  const updateUserByKey = (key, value) => {
     setState((prevState) => {
       return {
         ...prevState,
-        ...user,
+        [key]: value,
       };
     });
-  }, []);
+
+    // update in MongoDB
+    updateUser(user.email, JSON.stringify({[key]: value}))
+  }
+
+  const createUserIfNotFound = async () => {
+    try {
+      const newUserObject = createNewUserObject(authUser);
+      const createdUser = await createUser(newUserObject);
+      console.log("Created User: " + JSON.stringify(createdUser));
+      setState(createdUser);
+      setIsLoaded(true);
+    } catch (error) {
+      console.error("Error creating user:", error);
+      // Handle the error state here
+    }
+  };
+
+  const deleteUser = async () => {
+    deleteUserFromMongoDB(user.email)
+    setState(null);
+  }
+
+  const loadUser = async () => {
+    
+    const loadedUser = await fetchUser(authUser.email);
+    console.log("Loaded User: "+ JSON.stringify(loadedUser))
+    
+    if (loadedUser) {
+      setState(loadedUser);
+      setIsLoaded(true);
+    }
+    else{
+      createUserIfNotFound()
+    }
+  }
+
+  // Grab user from MongoDB
+  useEffect(() => {
+    if (authUser) {
+
+      loadUser()
+      // get from MongoDB
+      
+    }
+  }, [authUser]);
 
   return (
     <UserContext.Provider
       value={{
-        ...state,
-       handleUpdate
+        user,
+        streakDates: user?.streakDates,
+        isLoaded,
+        updateUserByKey,
+        deleteUser
       }}
     >
       {children}
@@ -53,3 +91,5 @@ export const UserProvider = (props) => {
 UserProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+

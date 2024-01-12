@@ -27,20 +27,29 @@ import { OverviewChallenges } from 'src/sections/dashboard/overview/overview-cha
 import Link from 'next/link';
 import { Avatar, Card, Divider } from '@mui/material';
 import Star01 from '@untitled-ui/icons-react/build/esm/Star01';
-import useStreak from 'src/utils/use-streak';
+import useStreak from 'src/hooks/use-streak';
 import toast from 'react-hot-toast';
 import Loading from './components/util/Loading';
+import { useUser } from 'src/hooks/use-user';
 
 const Page = () => {
   const settings = useSettings();
 
+  const {user} = useUser();
+
   const { streakCount, hasCheckedInToday, loading, checkUserInForDailyCheckin } = useStreak();
  
+
+
   usePageView();
 
   const handleCheckIn = () => {
     checkUserInForDailyCheckin();
     toast.success('Checked in for the day!');
+  }
+
+  if (!user){
+    return <h1>No User</h1>
   }
 
   return (

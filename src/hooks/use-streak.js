@@ -1,15 +1,25 @@
 import { useState, useEffect } from 'react';
+import { useUser } from './use-user';
 
 const useStreak = () => {
     const [streakCount, setStreakCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [hasCheckedInToday, setHasCheckedInToday] = useState(false);
 
+    const {user, streakDates, updateUserByKey} = useUser();
+
+    const setStreakDates = (streakDates) => {
+        updateUserByKey('streakDates', streakDates);
+    }
+
     const getStreak = () => {
-        const streakDates = JSON.parse(localStorage.getItem('streakDates')) || [];
         let count = 0;
         const today = new Date();
 
+        if (!streakDates){
+            console.log('No streak dates found. User:',JSON.stringify(user));
+            return
+        }
         // Sort streakDates in descending order to make sure we start from the most recent date
         streakDates.sort((a, b) => new Date(b) - new Date(a));
 
@@ -41,7 +51,6 @@ const useStreak = () => {
     };
 
     const checkUserInForDailyCheckin = () => {
-        const streakDates = JSON.parse(localStorage.getItem('streakDates')) || [];
         const today = new Date().toISOString().split('T')[0];
 
         // if user has already checked in today, do nothing
@@ -50,15 +59,19 @@ const useStreak = () => {
         }
 
         streakDates.push(today);
-        localStorage.setItem('streakDates', JSON.stringify(streakDates));
+        setStreakDates(streakDates)
 
-        getStreak();
+        // Update streak count
+        setStreakCount(streakCount + 1);
         setHasCheckedInToday(true);
     };
 
     useEffect(() => {
-        getStreak();
-    }, []);
+        if (user !== null){
+            console.log('useStreak - User', user);
+            getStreak();
+        }
+    }, [user]);
 
     return { streakCount, checkUserInForDailyCheckin, loading, hasCheckedInToday };
 };
