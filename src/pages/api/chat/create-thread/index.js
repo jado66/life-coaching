@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { createThread } from './create-thread';
-import setCorsHeaders from 'src/utils/middlware/cors';
+import {setCorsHeaders} from 'src/utils/middlware/cors';
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // Replace with your own API key
 
