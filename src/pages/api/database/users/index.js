@@ -1,5 +1,5 @@
 import { connectToMongoDatabase } from "src/utils/connect-to-mongo-database";
-import setCorsHeaders from "src/utils/middlware/cors";
+import {setCorsHeaders} from "src/utils/middlware/cors";
 
 export default async function handler(req, res) {
     setCorsHeaders(req, res, async() => {
