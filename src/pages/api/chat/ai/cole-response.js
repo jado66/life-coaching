@@ -1,6 +1,5 @@
 import OpenAI from 'openai';
 import { generateResponse } from '../generate-response/generate-response';
-import apiRequestOriginValidation from 'src/utils/api-request-origin-validation';
 import setCorsHeaders from 'src/utils/middlware/cors';
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_AI_API_KEY }); // Replace with your own API key
@@ -13,12 +12,6 @@ export default async function handler(req, res) {
       // If the request is not a POST, return 405 Method Not Allowed
       res.setHeader('Allow', ['POST']);
       return res.status(405).json({ error: 'Method Not Allowed' });
-    }
-
-    const originValid = apiRequestOriginValidation(req);
-    if (!originValid) {
-      // If the request does not pass the origin validation, return 403 Forbidden
-      return res.status(403).json({ error: 'Invalid origin' });
     }
 
     const {body} = req;
