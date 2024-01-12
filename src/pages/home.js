@@ -29,7 +29,7 @@ import { Avatar, Card, Divider } from '@mui/material';
 import Star01 from '@untitled-ui/icons-react/build/esm/Star01';
 import useStreak from 'src/hooks/use-streak';
 import toast from 'react-hot-toast';
-import { Loading, PageLoading } from './components/util/loading';
+import { Loading, PageLoading } from 'src/utils/components/loading';
 import { useUser } from 'src/hooks/use-user';
 
 const Page = () => {
