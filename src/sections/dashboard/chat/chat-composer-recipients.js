@@ -202,7 +202,7 @@ export const ChatComposerRecipients = (props) => {
             >
               {recipients.map((recipient) => (
                 <Chip
-                  avatar={<Avatar src={recipient.avatar} />}
+                  avatar={<Avatar src={recipient?.avatar} />}
                   key={recipient.id}
                   label={recipient.name}
                   onDelete={() => onRecipientRemove?.(recipient.id)}

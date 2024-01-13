@@ -96,7 +96,7 @@ export const ChatThreadItem = (props) => {
           {recipients.map((recipient) => (
             <Avatar
               key={recipient.id}
-              src={recipient.avatar || undefined}
+              src={recipient?.avatar || undefined}
             />
           ))}
         </AvatarGroup>
