@@ -5,6 +5,7 @@ import { useUser } from 'src/hooks/use-user';
 
 import { ChatMessage } from './chat-message';
 import ChatTypingIndicator from './chat-typing-indicator';
+import { Loading } from 'src/utils/components/loading';
 
 const getAuthor = (message, participants, user) => {
   const participant = participants.find((participant) => participant.id === message.authorId);
@@ -44,7 +45,7 @@ export const ChatMessages = (props) => {
     isTyping,
     ...other 
   } = props;
-  const {user} = useUser();
+  const {user, isLoading} = useUser();
 
   console.log('messages', messages) 
 
@@ -54,32 +55,40 @@ export const ChatMessages = (props) => {
       sx={{ p: 3 }}
       {...other}
     >
+      {
+        !user ?
+          <Loading/>
+        :
+        <>
+          {messages.map((message) => {
+            const author = getAuthor(message, participants, user);
 
-      {messages.map((message) => {
-        const author = getAuthor(message, participants, user);
+            return (
+              <ChatMessage
+                authorAvatar={author?.avatar}
+                authorName={author.name}
+                body={message.body}
+                contentType={message.contentType}
+                createdAt={message.createdAt}
+                key={message.id}
+                position={author.isUser ? 'right' : 'left'}
+                sentStatus={message.sentStatus}
+                deleteMessage={deleteMessage}
+                retrySend={retrySend}
+                id={message.id}
+              />
+            );
+          })}
+          
+          {isTyping && (
+            <ChatTypingIndicator
+              chatUser = {'Cole\'s Assistant'}
+            />
+          )}
+        </>
+      }
 
-        return (
-          <ChatMessage
-            authorAvatar={author?.avatar}
-            authorName={author.name}
-            body={message.body}
-            contentType={message.contentType}
-            createdAt={message.createdAt}
-            key={message.id}
-            position={author.isUser ? 'right' : 'left'}
-            sentStatus={message.sentStatus}
-            deleteMessage={deleteMessage}
-            retrySend={retrySend}
-            id={message.id}
-          />
-        );
-      })}
       
-      {isTyping && (
-        <ChatTypingIndicator
-          chatUser = {'Cole\'s Assistant'}
-        />
-      )}
     </Stack>
   );
 };
