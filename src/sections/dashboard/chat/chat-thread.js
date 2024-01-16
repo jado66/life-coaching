@@ -16,29 +16,39 @@ import { ChatMessageAdd } from './chat-message-add';
 import { ChatMessages } from './chat-messages';
 import { ChatThreadToolbar } from './chat-thread-toolbar';
 import useChat from 'src/hooks/use-chat';
+import { useUser } from 'src/hooks/use-user';
+
+const assitantParticipant = {"id":"5e86805e2bafd54f66cc95c3","avatar":"/assets/avatars/avatar-cole.png","lastActivity":1705375127568,"name":"Cole's Assistant"}
 
 const useParticipants = (threadKey) => {
   const router = useRouter();
+
+  const { user } = useUser()
+
+  // participants":[{"id":"5e86809283e28b96d2d38537","avatar":"/assets/avatars/avatar-jd.png","name":"JD Erwin"
   const [participants, setParticipants] = useState([]);
 
+  
   const handleParticipantsGet = useCallback(async () => {
-    try {
-      const participants = await chatApi.getParticipants({ threadKey });
-      setParticipants(participants);
-    } catch (err) {
-      console.error(err);
-      router.push(paths.dashboard.chat);
-    }
-  }, [router, threadKey]);
+    
+    const participants = [
+      assitantParticipant,
+      {
+        "id":"5e86809283e28b96d2d38537",
+        "avatar": user?.avatar,
+        "name":user?.firstName + ' ' + user?.lastName
+      }
+    ]
+  
+    setParticipants(participants)
+  }, [router, user]);
 
-  useEffect(
-    () => {
+  useEffect(() => {
+    if (user){
       handleParticipantsGet();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [threadKey]
-  );
-
+    }
+  }, [user]);
+    
   return participants;
 };
 
@@ -149,7 +159,7 @@ export const ChatThread = (props) => {
 
   const { threadKey, ...other } = props;
   const dispatch = useDispatch();
-  const user = useMockedUser();
+
   const thread = useThread(threadKey);
   const participants = useParticipants(threadKey);
   const { messagesRef } = useMessagesScroll(thread);
