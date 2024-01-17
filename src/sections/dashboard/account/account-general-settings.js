@@ -14,18 +14,18 @@ import SvgIcon from '@mui/material/SvgIcon';
 import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export const AccountGeneralSettings = (props) => {
-  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount } = props;
+  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount, updateUserAvatar } = props;
 
   const [firstName, setFirstName] = useState(user?.firstName);
   const [lastName, setLastName] = useState(user?.lastName);
   const [email, setEmail] = useState(user?.email);
 
-  const handleSaveFirstName = () => {
-    
+  const fileInputRef = useRef();
 
+  const handleSaveFirstName = () => {
     updateUserByKey('firstName', firstName);
   }
 
@@ -57,6 +57,13 @@ export const AccountGeneralSettings = (props) => {
     }
   }
 
+  const handleAvatarChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      updateUserAvatar(file);
+    }
+  };
+
 
   useEffect(() => {
     setFirstName(user?.firstName);
@@ -70,6 +77,13 @@ export const AccountGeneralSettings = (props) => {
       spacing={4}
       {...props}
     >
+      <input
+        type="file"
+        accept="image/png, image/jpeg"
+        onChange={handleAvatarChange}
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+      />
       <Card>
         <CardContent>
           <Grid
@@ -135,6 +149,7 @@ export const AccountGeneralSettings = (props) => {
                           alignItems="center"
                           direction="row"
                           spacing={1}
+                          onClick={() => fileInputRef.current.click()}
                         >
                           <SvgIcon color="inherit">
                             <Camera01Icon />
@@ -164,9 +179,9 @@ export const AccountGeneralSettings = (props) => {
                   <Button
                     color="inherit"
                     size="small"
-                    disabled
+                    onClick={() => fileInputRef.current.click()}
                   >
-                    Change Picture {'(Coming soon)'}
+                    Change Picture
                   </Button>
                 </Stack>
                 <Stack
@@ -282,8 +297,4 @@ export const AccountGeneralSettings = (props) => {
       </Card>
     </Stack>
   );
-};
-
-AccountGeneralSettings.propTypes = {
-  user: PropTypes.object.isRequired
 };

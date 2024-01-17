@@ -30,7 +30,7 @@ const tabs = [
 ];
 
 const Page = () => {
-  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount } = useUser();
+  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount, updateUserAvatar } = useUser();
   const [currentTab, setCurrentTab] = useState('general');
 
   usePageView();
@@ -82,6 +82,7 @@ const Page = () => {
               updateUserByKey = {updateUserByKey}
               tryChangeUserEmail = {tryChangeUserEmail}
               deleteAccount = {deleteAccount}
+              updateUserAvatar = {updateUserAvatar}
             />
           )}
           {currentTab === 'billing' && (

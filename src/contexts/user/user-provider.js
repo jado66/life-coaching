@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { UserContext } from './user-context';
 import { useAuth } from 'src/hooks/use-auth';
@@ -30,6 +30,39 @@ export const UserProvider = (props) => {
 
     // update in MongoDB
     updateUser(user.email, JSON.stringify({[key]: value}))
+  }
+
+  const updateUserAvatar = async (file) => {
+    try {
+      const formData = new FormData();
+      formData.append('email', user.email);
+      formData.append('file', file);
+  
+      const response = await fetch('/api/database/users/update-avatar', {
+        method: 'POST',
+        body: formData, // Send the form data with the file
+      });
+  
+      const data = await response.json();
+  
+      if(response.ok){
+        console.log("Avatar updated successfully:", data.message);
+
+        setState((prevState) => {
+          return {
+            ...prevState,
+            avatar: data.avatar,
+          };
+        });
+      } else {
+        console.error("Error updating user avatar:", data.message);
+        alert("Error updating user avatar: " + data.message);
+      }
+  
+    } catch (error) {
+      console.error("Error updating user avatar:", error);
+      alert("Error updating user avatar: " + error)
+    }
   }
 
   const createUserIfNotFound = async () => {
@@ -106,7 +139,8 @@ export const UserProvider = (props) => {
         isLoaded,
         updateUserByKey,
         deleteAccount,
-        tryChangeUserEmail
+        tryChangeUserEmail,
+        updateUserAvatar
       }}
     >
       {children}
