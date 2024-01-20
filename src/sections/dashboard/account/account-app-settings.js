@@ -11,7 +11,6 @@ import { OptionsLayout } from 'src/components/settings/settings-drawer/options-l
 import { OptionsNavColor } from 'src/components/settings/settings-drawer/options-nav-color';
 import { OptionsColorScheme } from 'src/components/settings/settings-drawer/options-color-scheme';
 import { OptionsStretch } from 'src/components/settings/settings-drawer/options-stretch';
-import { OptionsAccountType } from 'src/components/settings/settings-drawer/options-account-type';
 import { OptionsColorPreset } from 'src/components/settings/settings-drawer/options-color-preset';
 import { useSettings } from 'src/hooks/use-settings';
 import { useCallback } from 'react';
@@ -50,37 +49,29 @@ export const AccountAppSettings = (props) => {
             sx={{ p: 3 }}
         >
             
-            <OptionsColorPreset
+            {/* <OptionsColorPreset
                 onChange={(value) => handleFieldUpdate('colorPreset', value)}
                 value={settings.colorPreset}
-            />
+            /> */}
             <OptionsColorScheme
                 onChange={(value) => handleFieldUpdate('paletteMode', value)}
                 value={settings.paletteMode}
             />
-            <OptionsNavColor
+            {/* <OptionsNavColor
                 onChange={(value) => handleFieldUpdate('navColor', value)}
                 value={settings.navColor}
-            />
-            <OptionsLayout
+            /> */}
+            {/* <OptionsLayout
                 onChange={(value) => handleFieldUpdate('layout', value)}
                 value={settings.layout}
-            />
-            <OptionsStretch
+            /> */}
+            {/* <OptionsStretch
                 onChange={(value) => handleFieldUpdate('stretch', value)}
                 value={settings.stretch}
-            />
-            <OptionsContrast
+            /> */}
+            {/* <OptionsContrast
                 onChange={(value) => handleFieldUpdate('contrast', value)}
                 value={settings.contrast}
-            />
-            <OptionsAccountType
-                onChange={(value) => handleFieldUpdate('accountType', value)}
-                value={settings.accountType}
-            />
-            {/* <OptionsDirection
-                onChange={(value) => handleFieldUpdate('direction', value)}
-                value={settings.direction}
             /> */}
         </Stack>
 

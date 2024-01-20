@@ -45,7 +45,7 @@ export const en = {
   [tokens.nav.orderList]: 'Orders',
   [tokens.nav.dashboard]: 'Dashboard',
   [tokens.nav.pages]: 'Utility Pages',
-  [tokens.nav.plan]: 'Plan',
+  [tokens.nav.plan]: 'Plan (Coming Soon)',
   [tokens.nav.postCreate]: 'Post Create',
   [tokens.nav.postDetails]: 'Post Details',
   [tokens.nav.postList]: 'Post List',

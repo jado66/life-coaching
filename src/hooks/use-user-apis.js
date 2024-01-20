@@ -65,9 +65,9 @@ const useUserApis = () => {
         }
     };
 
-    const deleteUser = async (email) => {
+    const deleteUserFromAuth0 = async (auth0Id) => {
         try {
-            const response = await fetch(`/api/database/users/${email}`, {
+            const response = await fetch(`/api/auth-database/delete-account/${auth0Id}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -75,10 +75,49 @@ const useUserApis = () => {
         } catch (error) {
             console.error('Error deleting user:', error);
         }
+    }
+
+    const deleteUser = async (email, auth0Id, isChangingEmail = false) => {
+        try {
+            const response = await fetch(`/api/database/users/${email}`, {
+                method: 'DELETE',
+            });
+            
+            const data = await response.json();
+            
+            if (!isChangingEmail) {
+                await deleteUserFromAuth0(auth0Id);
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
     };
 
-    const changeUserEmail = async (oldEmail, newEmail) => {
+    const changeUserEmailInAuth0 = async (newEmail, auth0Id) => {
+        try {
+            const response = await fetch(`/api/auth-database/update-email/${auth0Id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({newEmail}),
+            });
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error updating user email:', error);
+        }
+    }
+
+    const changeUserEmail = async (oldEmail, newEmail, auth0Id) => {
         // check and see if new email is already taken
+        
+        if (!auth0Id) {
+            throw new Error('Auth0 ID is required');
+        }
+        
         const user = await fetchUser(newEmail);
 
         if (user) {
@@ -90,11 +129,14 @@ const useUserApis = () => {
         const newUser = {...oldUser};
 
         // delete old user
-        await deleteUser(oldEmail);
+        await deleteUser(oldEmail, auth0Id, true);
 
         // update email
         newUser.email = newEmail;
         newUser._id = newEmail;
+
+        // update in Auth0
+        await changeUserEmailInAuth0(newEmail, auth0Id);
 
         console.log("New User: " + JSON.stringify(newUser));
 

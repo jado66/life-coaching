@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 import { useEffect, useState, useRef } from 'react';
 
 export const AccountGeneralSettings = (props) => {
-  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount, updateUserAvatar } = props;
+  const { user, updateUserByKey, tryChangeUserEmail, deleteUserAccount, updateUserAvatar } = props;
 
   const [firstName, setFirstName] = useState(user?.firstName);
   const [lastName, setLastName] = useState(user?.lastName);
@@ -53,7 +53,7 @@ export const AccountGeneralSettings = (props) => {
 
     if (confirmDelete) {
       // delete account
-      deleteUser();
+      deleteUserAccount();
     }
   }
 
@@ -248,9 +248,9 @@ export const AccountGeneralSettings = (props) => {
                     color="inherit"
                     size="small"
                     onClick={handleSaveEmail}
-                    disabled={email}
+                    disabled={email === user?.email}
                   >
-                    Edit {'(Coming soon)'}
+                    Edit
                   </Button>
                 </Stack>
               </Stack>
@@ -286,9 +286,8 @@ export const AccountGeneralSettings = (props) => {
                   color="error"
                   variant="outlined"
                   onClick={handleDeleteAccount}
-                  disabled
                 >
-                  Delete account  {'(Coming Soon)'}
+                  Delete account
                 </Button>
               </Stack>
             </Grid>

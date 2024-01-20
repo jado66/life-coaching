@@ -18,19 +18,28 @@ import { AccountTeamSettings } from 'src/sections/dashboard/account/account-team
 import { AccountSecuritySettings } from 'src/sections/dashboard/account/account-security-settings';
 import { useUser } from 'src/hooks/use-user';
 import { AccountAppSettings } from 'src/sections/dashboard/account/account-app-settings';
+import { AccountImpersonateSettings } from 'src/sections/dashboard/account/account-impersonate-settings';
 
 const now = new Date();
 
 const tabs = [
   { label: 'General', value: 'general', enabled: true },
-  { label: 'Billing', value: 'billing', enabled: false },
-  { label: 'Notifications', value: 'notifications', enabled: false },
-  { label: 'App Display', value: 'app', enabled: false },
-  { label: 'Security', value: 'security', enabled: false },
+  { label: 'Billing (Coming Soon)', value: 'billing', enabled: false },
+  // { label: 'Notifications', value: 'notifications', enabled: false },
+  { label: 'App Display', value: 'app', enabled: true },
+  { label: 'Security', value: 'security', enabled: true },
+  { label: 'Impersonate', value: 'impersonate', enabled: true },
 ];
 
 const Page = () => {
-  const { user, updateUserByKey, tryChangeUserEmail, deleteAccount, updateUserAvatar } = useUser();
+  const { 
+    user, 
+    updateUserByKey, 
+    tryChangeUserEmail, 
+    deleteUserAccount, 
+    updateUserAvatar,
+    sendResetPasswordEmail
+  } = useUser();
   const [currentTab, setCurrentTab] = useState('general');
 
   usePageView();
@@ -81,7 +90,7 @@ const Page = () => {
               user = {user} 
               updateUserByKey = {updateUserByKey}
               tryChangeUserEmail = {tryChangeUserEmail}
-              deleteAccount = {deleteAccount}
+              deleteUserAccount = {deleteUserAccount}
               updateUserAvatar = {updateUserAvatar}
             />
           )}
@@ -129,6 +138,7 @@ const Page = () => {
           {currentTab === 'app' && <AccountAppSettings/> }
           {currentTab === 'security' && (
             <AccountSecuritySettings
+              sendResetPasswordEmail={sendResetPasswordEmail}
               loginEvents={[
                 {
                   id: '1bd6d44321cb78fd915462fa',
@@ -147,6 +157,7 @@ const Page = () => {
               ]}
             />
           )}
+          {currentTab === 'impersonate' && <AccountImpersonateSettings/> }
         </Container>
       </Box>
     </>

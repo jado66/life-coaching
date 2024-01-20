@@ -103,7 +103,7 @@ const Page = () => {
                   target="_blank" // Add target="_blank" to open the link in a new tab or window
                   sx={{
                     fontSize: '1.5rem',
-                    padding: '1rem 2rem',
+                    padding: '0.75em 1.5rem',
                   }}
                 >
                   Book a Call
@@ -116,7 +116,7 @@ const Page = () => {
               <Stack
                 direction="row"
                 justifyContent="space-between"
-                spacing={4}
+                spacing={2}
               >
                 <Button
                    component={Link}
@@ -125,7 +125,7 @@ const Page = () => {
                    href='/chat'
                    sx={{
                     fontSize: '1.5rem',
-                    padding: '1rem 2rem',
+                    padding: '0.75em 1.5rem',
                   }}
                 >
                   Chat with Assistant
@@ -138,7 +138,7 @@ const Page = () => {
               <Stack
                 direction="row"
                 justifyContent="space-between"
-                spacing={4}
+                spacing={2}
               >
                 <Button
                    component="a"
@@ -146,7 +146,7 @@ const Page = () => {
                    variant="contained"
                    sx={{
                     fontSize: '1.5rem',
-                    padding: '1rem 2rem',
+                    padding: '0.75em 1.5rem',
                   }}
                 >
                   Plan
@@ -154,8 +154,58 @@ const Page = () => {
                
               </Stack>
             </Grid>
+
+            <Grid xs={12}>
+              <Grid container alignItems="center" justifyContent="space-between" spacing={2}>
+                <Grid item>
+                  <Button
+                    component="a"
+                    fullWidth
+                    variant="contained"
+                    target="_blank"
+                    sx={{
+                      fontSize: '1.5rem',
+                      padding: '0.75em 1.5rem',
+                    }}
+                    onClick={handleCheckIn}
+                    disabled={hasCheckedInToday}
+                  >
+                    {hasCheckedInToday ? 'Already Checked In' : 'Daily Check In'}
+                  </Button>
+                </Grid>
+
+                <Grid item xs>
+                  <Card fullWidth
+                    sx={{
+                      fontSize: '1.5rem',
+                      padding: '0.75em 1.5rem',
+                    }}
+                  >
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <Typography variant="h5" sx={{ textAlign: 'center', flexGrow: 1 }}>
+                        No Contact - {streakCount} Day Streak
+                      </Typography>
+                      <Avatar
+                        sx={{
+                          backgroundColor: 'primary.main',
+                          color: 'primary.contrastText',
+                          height: 48,
+                          width: 48,
+                        }}
+                      >
+                        <SvgIcon>
+                          <Star01 />
+                        </SvgIcon>
+                      </Avatar>
+                    </Stack>
+                  </Card>
+                </Grid>
+
+                
+              </Grid>
+            </Grid>
             
-            { loading ?
+            {/* { loading ?
               <Grid xs={12}>
                 <Box
                   sx={{
@@ -170,62 +220,65 @@ const Page = () => {
               :
               <>
                 <Grid xs={12}>
-                  <Card>
+                  <Grid xs={8}>
+                    <Card>
+                      <Stack
+                        alignItems="center"
+                        direction="row"
+                        spacing={2}
+                        sx={{ p: 2 }}
+                      >
                         <Stack
-                          alignItems="center"
-                          direction="row"
-                          spacing={2}
-                          sx={{ p: 2 }}
+                          spacing={1}
+                          sx={{ flexGrow: 1 }}
                         >
+                        
                           <Stack
+                            alignItems="center"
+                            direction="row"
                             spacing={1}
-                            sx={{ flexGrow: 1 }}
                           >
-                          
-                            <Stack
-                              alignItems="center"
-                              direction="row"
-                              spacing={1}
-                            >
-                              <Typography variant="h5" sx={{ textAlign: 'center', flexGrow:1 }}>No Contact - {streakCount} Day Streak</Typography>
-                            </Stack>
+                            <Typography variant="h5" sx={{ textAlign: 'center', flexGrow:1 }}>No Contact - {streakCount} Day Streak</Typography>
                           </Stack>
-                          <Avatar
-                            sx={{
-                              backgroundColor: 'primary.main',
-                              color: 'primary.contrastText',
-                              height: 48,
-                              width: 48,
-                            }}
-                          >
-                            <SvgIcon>
-                              <Star01 />
-                            </SvgIcon>
-                          </Avatar>
                         </Stack>
-                  </Card>
+                        <Avatar
+                          sx={{
+                            backgroundColor: 'primary.main',
+                            color: 'primary.contrastText',
+                            height: 48,
+                            width: 48,
+                          }}
+                        >
+                          <SvgIcon>
+                            <Star01 />
+                          </SvgIcon>
+                        </Avatar>
+                      </Stack>
+                    </Card>
+                  </Grid>
+                
+                  <Grid xs={4} >
+                  
+                    <Button
+                        component="a"
+                        fullWidth
+                        variant="contained"
+                        target="_blank" // Add target="_blank" to open the link in a new tab or window
+                        sx={{
+                          fontSize: '1.5rem',
+                          padding: '0.75em 1.5rem',
+                        }}
+                        onClick={handleCheckIn}
+                        disabled={hasCheckedInToday}
+                      >
+                        {hasCheckedInToday ? 'Already Checked In' : 'Daily Check In'}
+                      </Button>
+                      
+                  </Grid>
                 </Grid> 
 
-                <Grid xs={12} >
-                
-                  <Button
-                      component="a"
-                      fullWidth
-                      variant="contained"
-                      target="_blank" // Add target="_blank" to open the link in a new tab or window
-                      sx={{
-                        fontSize: '1.5rem',
-                        padding: '1rem 2rem',
-                      }}
-                      onClick={handleCheckIn}
-                      disabled={hasCheckedInToday}
-                    >
-                      {hasCheckedInToday ? 'Already Checked In' : 'Daily Check In'}
-                    </Button>
-                    
-                </Grid>
               </>
-            }
+            } */}
             {/* <Grid
               xs={12}
               md={8}

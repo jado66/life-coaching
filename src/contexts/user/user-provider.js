@@ -4,6 +4,8 @@ import { UserContext } from './user-context';
 import { useAuth } from 'src/hooks/use-auth';
 import { createNewUserObject } from './create-new-user-object';
 import useUserApis from 'src/hooks/use-user-apis';
+import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 
 export const UserProvider = (props) => {
   const { children } = props;
@@ -12,11 +14,13 @@ export const UserProvider = (props) => {
 
   const { user: authUser } = useAuth();
 
+  const auth = useAuth();
+
   const { 
     createUser,
     fetchUser,
     updateUser,
-    deleteAccount: deleteUser,
+    deleteUser,
     changeUserEmail
   } = useUserApis();
 
@@ -30,6 +34,29 @@ export const UserProvider = (props) => {
 
     // update in MongoDB
     updateUser(user.email, JSON.stringify({[key]: value}))
+  }
+
+  const sendResetPasswordEmail = async () => {
+    try{
+      await fetch('/api/auth-database/reset-password', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: user.email,
+          connection: 'Username-Password-Authentication'
+        })
+      });
+
+      if (!response.ok) {
+        console.error('Failed to initiate password reset:', response);
+        return res.status(500).json({ error: error.message });
+      }
+
+      toast.success("Reset password email sent successfully. Please check your inbox.");
+    }
+    catch(error){
+      console.error("Error sending reset password email:", error);
+      alert("Error sending reset password email: " + error)
+    }
   }
 
   const updateUserAvatar = async (file) => {
@@ -68,6 +95,7 @@ export const UserProvider = (props) => {
   const createUserIfNotFound = async () => {
     try {
 
+
       const newUserObject = createNewUserObject(authUser);
       const createdUser = await createUser(newUserObject);
       console.log("Created User: " + JSON.stringify(createdUser));
@@ -79,9 +107,18 @@ export const UserProvider = (props) => {
     }
   };
 
-  const deleteAccount = async () => {
-    deleteUser(user.email)
-    setState(null);
+  const deleteUserAccount = async () => {
+    try{
+      await deleteUser(user.email, user.auth0Id)
+      setState(null);
+
+      // nextjs redirect to home page
+      await auth.logout();
+    }
+    catch(error){
+      console.error("Error deleting user:", error);
+      alert("Error deleting user: " + error)
+    }
   }
 
   const loadUser = async () => {
@@ -101,7 +138,7 @@ export const UserProvider = (props) => {
 
   const tryChangeUserEmail = async (newEmail) => {
     try{
-      await changeUserEmail(user.email, newEmail)
+      await changeUserEmail(user.email, newEmail, user.auth0Id)
       setState((prevState) => {
         return {
           ...prevState,
@@ -110,7 +147,7 @@ export const UserProvider = (props) => {
         };
       });
 
-      // This needs to be done in the Auth Provider too
+      toast.success("Email changed successfully");
 
       return true;
     }
@@ -131,6 +168,11 @@ export const UserProvider = (props) => {
     }
   }, [authUser]);
 
+  // if (authUser) {
+  //   console.log(Object.keys(authUser))
+  // }
+
+
   return (
     <UserContext.Provider
       value={{
@@ -138,9 +180,10 @@ export const UserProvider = (props) => {
         streakDates: user?.streakDates,
         isLoaded,
         updateUserByKey,
-        deleteAccount,
+        deleteUserAccount,
         tryChangeUserEmail,
-        updateUserAvatar
+        updateUserAvatar,
+        sendResetPasswordEmail
       }}
     >
       {children}
